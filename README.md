@@ -1,2 +1,2 @@
 # Cubers-Algo
- 
+This website is for cubers, beginners and veterans. Beginners can use this site to start getting into the hobby of cubing while people who are already cubers can use it as a "cheatsheet" if you will.

@@ -15,8 +15,6 @@
 </head>
 
 <body>
-	<script src="script.js">
-	</script>
 
 	<!-- NAVIGATION BAR -->
 	<div id="navbar">
@@ -25,18 +23,18 @@
 				<li class="navbar-tab">
 					<a href="../index.html">Home</a>
 				</li>
-				<li class="navbar-tab dropdown">
+				<li class="navbar-tab dropdown" onclick="showDropdown('three')">
 					<a class="active" href="#">3x3<i class="fas fa-caret-down"></i></a>
-					<ul class="dropdown-body">
+					<ul class="dropdown-body" id="three-menu">
 						<li class="dropdown-link"><a class="active" href="cross.html">Cross</a></li>
 						<li class="dropdown-link"><a href="f2l.html">F2L</a></li>
 						<li class="dropdown-link"><a href="oll.html">OLL</a></li>
 						<li class="dropdown-link"><a href="pll.html">PLL</a></li>
 					</ul>
 				</li>
-        <li class="navbar-tab dropdown">
+        <li class="navbar-tab dropdown" onclick="showDropdown('other')">
           <a href="#">Other <i class="fas fa-caret-down"></i></a>
-          <ul class="dropdown-body">
+          <ul class="dropdown-body" id="other-menu">
             <li class="dropdown-link"><a href="../timer.html">Timer</a></li>
             <li class="dropdown-link"><a href="../Notations/notations.html">Notations</a></li>
           </ul>
@@ -73,5 +71,6 @@
 		</div>
 	</div>
 
+	<script src="script.js"></script>
   </body>
 </html>

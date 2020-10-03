@@ -1,4 +1,26 @@
 /* *************************** */
+/* ****** SHOW DROPDOWN ****** */
+function showDropdown(whichMenu){
+  if(whichMenu == 'three'){
+    var menu = document.querySelector('#three-menu');
+    if(menu.style.display == '' || menu.style.display === 'none')
+      menu.style.display = 'block';
+    else
+      menu.style.display = 'none';
+  }
+  if(whichMenu == 'other'){
+    var  menu = document.querySelector('#other-menu');
+    if(menu.style.display == '' || menu.style.display === 'none')
+      menu.style.display = 'block';
+    else
+      menu.style.display = 'none';
+  }
+}
+/* *************************** */
+/* *************************** */
+
+
+/* *************************** */
 /* STOPWATCH VARIABLES */
 var time = document.querySelector('#time'),
   minute = 0,

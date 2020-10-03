@@ -23,18 +23,18 @@
 				<li class="navbar-tab">
 					<a href="index.html">Home</a>
 				</li>
-				<li class="navbar-tab dropdown">
+				<li class="navbar-tab dropdown" onclick="showDropdown('three')">
 					<a href="#">3x3 <i class="fas fa-caret-down"></i></a>
-					<ul class="dropdown-body">
+					<ul class="dropdown-body" id="three-menu">
 						<li class="dropdown-link"><a href="3x3/cross.html">Cross</a></li>
 						<li class="dropdown-link"><a href="3x3/f2l.html">F2L</a></li>
 						<li class="dropdown-link"><a href="3x3/oll.html">OLL</a></li>
 						<li class="dropdown-link"><a href="3x3/pll.html">PLL</a></li>
 					</ul>
 				</li>
-				<li class="navbar-tab dropdown">
+				<li class="navbar-tab dropdown" onclick="showDropdown('other')">
 					<a class="active" href="#">Other <i class="fas fa-caret-down"></i></a>
-					<ul class="dropdown-body">
+					<ul class="dropdown-body"  id="other-menu">
 						<li class="dropdown-link"><a class="active" href="timer.html">Timer</a></li>
 						<li class="dropdown-link"><a href="Notations/notations.html">Notations</a></li>
 					</ul>

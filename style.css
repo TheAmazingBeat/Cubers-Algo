@@ -66,7 +66,8 @@ body {
 	text-align: center;
 }
 
-.dropdown-link:hover{	background: black;}
+.dropdown-link:hover{background: black;}
+.dropdown-link:active{background: black;}
 
 .dropdown:hover .dropdown-body{display: block;}
 
@@ -75,6 +76,13 @@ body {
 	height: 50px;
 }
 
+@media only screen and (max-width: 600px){
+	.navbar-tab a{padding: 15px 25px;}
+}
+
+@media only screen and (max-width: 400px){
+	.navbar-tab a{padding: 15px 20px;}
+}
 .page-header {
 	text-align: center;
 	color: #00FF66
@@ -306,7 +314,7 @@ b{
 /* ********************** */
 /* **** Timer Page ****** */
 #stopwatch{
-	width: 50%;
+	width: 75%;
 	margin: 2% auto;
 	border: 2px solid white;
 	border-radius: 10px;
@@ -316,7 +324,6 @@ b{
 }
 
 .btn-container{
-	width: 50%;
 	margin: auto;
 	display: flex;
 	justify-content: space-evenly;
@@ -341,6 +348,21 @@ b{
 #scramble{
 	text-align: center;
 	font-size: 2em;
+}
+
+@media only screen and (max-width: 600px){
+	.excerpt{
+		width: auto;
+	}
+	
+	.sw-button{
+		font-size: 1em;
+		padding: 15px 25px;
+	}
+
+	#scramble{
+		font-size: 1.5em;
+	}
 }
 /* ********************** */
 /* ********************** */
