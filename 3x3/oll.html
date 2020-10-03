@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>OLL | Cuber's Algo</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <!-- Favicon -->
+	<link rel="icon" href="favicon.ico">
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/d6a4ed92eb.js" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+  <script src="script.js">
+
+  </script>
+
+  <!-- NAVIGATION BAR -->
+  <div id="navbar">
+    <nav>
+      <ul>
+        <li class="navbar-tab">
+          <a href="../index.html">Home</a>
+        </li>
+        <li class="navbar-tab dropdown">
+          <a class="active" href="#">3x3 <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown-body">
+            <li class="dropdown-link"><a href="cross.html">Cross</a></li>
+            <li class="dropdown-link"><a href="f2l.html">F2L</a></li>
+            <li class="dropdown-link"><a class="active" href="3x3/oll.html">OLL</a></li>
+            <li class="dropdown-link"><a href="pll.html">PLL</a></li>
+          </ul>
+        </li>
+        <li class="navbar-tab dropdown">
+          <a href="#">Other <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown-body">
+            <li class="dropdown-link"><a href="../timer.html">Timer</a></li>
+            <li class="dropdown-link"><a href="../Notations/notations.html">Notations</a></li>
+          </ul>
+        </li>
+        <li class="navbar-tab"><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- To fix position of header since the navbar has a fixed position -->
+  <div class="invisible-div"></div>
+
+
+  <div id="OLL">
+    <h1 class="page-header">Orientation of the Last Layer (OLL)</h1>
+
+    <div class="container">
+      <div class="excerpt">
+        <h3 class="page-header">2-Look OLL</h3>
+        <p>2-look OLL is a two-step method to orientate the last layer. The first step is to make a cross
+          or "orient the edges." Then, continue on the corners. 2-look OLL is easier to memorize because there are
+          only 10 algorithms other than full OLL which has over 50 algoritihms. The downside is that in doing this,
+          you will have more moves meaning that it will take more seconds to solve.
+        </p>
+      </div>
+
+      <!-- ALGORITIHMS -->
+      <!-- 1ST LOOK -->
+      <div class="row">
+        <div class="column">
+          <div class="category">
+            <h3 class="category-heading">1st Look</h3>
+
+            <div class="algos">
+              <!-- LINE -->
+              <div class="algorithm-content">
+                <div class="algo-pic">
+                  <img src="../3x3/OLL/2-look/2-look-oll_Line.png">
+                </div>
+                <div class="algo-text">
+                  <h5 class="algo-name">Line</h5>
+                  <p>F (R U R' U') F'</p>
+                </div>
+              </div>
+              <!-- ELBOW -->
+              <div class="algorithm-content">
+                <div class="algo-pic">
+                  <img src="../3x3/OLL/2-look/2-look-oll_Elbow.png">
+                </div>
+                <div class="algo-text">
+                  <h5 class="algo-name">Elbow</h5>
+                  <p>f (R U R' U') f'</p>
+                </div>
+              </div>
+              <!-- DOT -->
+              <div class="algorithm-content">
+                <div class="algo-pic">
+                  <img src="../3x3/OLL/2-look/2-look-oll_Dot.png">
+                </div>
+                <div class="algo-text">
+                  <h5 class="algo-name">Dot</h5>
+                  <p>[F (R U R' U') F'] [f (R U R' U') f']</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 2ND LOOK -->
+      <div class="row">
+        <div class="sect-full-width">
+          <div class="category">
+            <h3 class="category-heading">2nd Look</h3>
+
+            <div class="col-container">
+              <div class="sect-col">
+                <div class="algos">
+                  <!-- SUNE -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_Sune.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">Sune</h5>
+                      <p>R U R' U R U2 R'</p>
+                    </div>
+                  </div>
+                  <!-- ANTI-SUNE -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_Anti-Sune.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">Anti-Sune</h5>
+                      <p>R U2 R' U' R U' R'</p>
+                    </div>
+                  </div>
+                  <!-- H -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_H.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">H</h5>
+                      <p>F (R U R' U') (R U R' U') (R U R' U') F'</p>
+                    </div>
+                  </div>
+                  <!-- PI -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_Pi.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">Pi</h5>
+                      <p>R U2 R2' U' R2 U' R2' U2' R</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sect-col">
+                <div class="algos">
+                  <!-- HEADLIGHTS -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_Headlights.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">Headlights</h5>
+                      <p>R2 D (R' U2 R) D' (R' U2 R')</p>
+                    </div>
+                  </div>
+                  <!-- T -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_T.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">T</h5>
+                      <p>(r U R' U') r' (F R F')</p>
+                    </div>
+                  </div>
+                  <!-- BOWTIE -->
+                  <div class="algorithm-content">
+                    <div class="algo-pic">
+                      <img src="../3x3/OLL/2-look/2-look-oll_Bowtie.png">
+                    </div>
+                    <div class="algo-text">
+                      <h5 class="algo-name">Bowtie</h5>
+                      <p>F' (r U R' U') r' F R</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Notations | Cuber's Algo</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <!-- Favicon -->
+	  <link rel="icon" href="favicon.ico">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Font Awesome Link -->
+    <script src="https://kit.fontawesome.com/d6a4ed92eb.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <script src="script.js"></script>
+
+    <!-- NAVIGATION BAR -->
+    <div id="navbar">
+      <nav>
+        <ul>
+          <li class="navbar-tab">
+            <a href="../index.html">Home</a>
+          </li>
+          <li class="navbar-tab dropdown">
+            <a href="#">3x3 <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-body">
+              <li class="dropdown-link"><a href="../3x3/cross.html">Cross</a></li>
+              <li class="dropdown-link"><a href="../3x3/f2l.html">F2L</a></li>
+              <li class="dropdown-link"><a href="../3x3/oll.html">OLL</a></li>
+              <li class="dropdown-link"><a href="../3x3/pll.html">PLL</a></li>
+            </ul>
+          </li>
+          <li class="navbar-tab dropdown">
+            <a class="active" href="#">Other <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-body">
+              <li class="dropdown-link"><a href="../timer.html">Timer</a></li>
+              <li class="dropdown-link"><a class="active" href="notations.html">Notations</a></li>
+            </ul>
+          </li>
+          <li class="navbar-tab"><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- To fix position of header since the navbar has a fixed position -->
+    <div class="invisible-div"></div>
+
+    <!-- CUBE NOTATIONS -->
+    <div class="container" id="notations">
+      <h2 class="page-header">Cube Notations</h2>
+      <p class="notation-intro notation-text">
+        Cube Notations are actually fairly easy to understand. Once you have
+        mastered the notations, you can tackle any algorithms. Basically only
+        capitalized letters respresents a side of a cube. This means to turn that
+        side of the cube <b>clockwise</b>, but if the capitalized letter has an
+        apostrophe after it, then that side should be turned
+        <b>counter-clockwise</b>. Here is the list of all the 3x3 cube notations
+        you need to know.
+      </p>
+
+      <table id="notation-table">
+        <!-- R -->
+        <tr>
+          <td class="notation-move">R</td>
+          <td class="notation-description">Turn the right side of the cube up. If you put the right side in front of you, it is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_R.png" alt="R Notation"></td>
+        </tr>
+        <!-- R PRIME -->
+        <tr>
+          <td class="notation-move">R'</td>
+          <td class="notation-description">Turn the right side of the cube up. If you put the right side in front of you, it is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_R'.png" alt="R Prime Notation"></td>
+        </tr>
+        <!-- L -->
+        <tr>
+          <td class="notation-move">L</td>
+          <td class="notation-description">Turn the left side of the cube down. If you put the left side in front of you, it is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_L.png" alt="L Notation"></td>
+        </tr>
+        <!-- L PRIME -->
+        <tr>
+          <td class="notation-move">L'</td>
+          <td class="notation-description">Turn the left side of the cube up. If you put the left side in front of you, it is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_L'.png" alt="L Prime Notation"></td>
+        </tr>
+        <!-- U -->
+        <tr>
+          <td class="notation-move">U</td>
+          <td class="notation-description">Turn the top layer to the left. If you look up the cube, it is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_U.png" alt="U Notation"></td>
+        </tr>
+        <!-- U PRIME -->
+        <tr>
+          <td class="notation-move">U'</td>
+          <td class="notation-description">Turn the top layer to the right. If you look up the cube, it is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_U'.png" alt="U Prime Notation"></td>
+        </tr>
+        <!-- D -->
+        <tr>
+          <td class="notation-move">D</td>
+          <td class="notation-description">Turn the bottom layer to the right. If you look down the cube, it is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_D.png" alt="D Notation"></td>
+        </tr>
+        <!-- D PRIME -->
+        <tr>
+          <td class="notation-move">D'</td>
+          <td class="notation-description">Turn the bottom layer to the left. If you look down the cube, it is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_D'.png" alt="D Prime Notation"></td>
+        </tr>
+        <!-- F -->
+        <tr>
+          <td class="notation-move">F</td>
+          <td class="notation-description">Turn the layer in front of you clockwise.</td>
+          <td class="notation-img"><img src="notations_F.png" alt="F Notation"></td>
+        </tr>
+        <!-- F PRIME -->
+        <tr>
+          <td class="notation-move">F'</td>
+          <td class="notation-description">Turn the layer in front of you counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_F'.png" alt="F Prmie Notation"></td>
+        </tr>
+        <!-- B -->
+        <tr>
+          <td class="notation-move">B</td>
+          <td class="notation-description">Turn the layer on the back of the cube clockwise.</td>
+          <td class="notation-img"><img src="notations_B.png" alt="B Notation"></td>
+        </tr>
+        <!-- B PRIME -->
+        <tr>
+          <td class="notation-move">B'</td>
+          <td class="notation-description">Turn the layer on the back of the cube counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_B'.png" alt="B Prime Notation"></td>
+        </tr>
+        <!-- X -->
+        <tr>
+          <td class="notation-move">x</td>
+          <td class="notation-description">Imagine there is an x axis across the middle of the cube. Turn the whole cube upwards from that imaginary axis. If you look at the right side of the cube, the whole cube is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_X.png" alt="x Notation"></td>
+        </tr>
+        <!-- X PRIME -->
+        <tr>
+          <td class="notation-move">x'</td>
+          <td class="notation-description">Imagine there is an x axis across the middle of the cube. Turn the whole cube downwards from that imaginary axis. If you look at the right side of the cube, the whole cube is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_X'.png" alt="x Prime Notation"></td>
+        </tr>
+        <!-- Y -->
+        <tr>
+          <td class="notation-move">y</td>
+          <td class="notation-description">Imagine there is a y axis across the middle of the cube. Turn the whole cube to the left from that imaginary axis. If you look up the cube, the whole cube is turned clockwise.</td>
+          <td class="notation-img"><img src="notations_Y.png" alt="y Notation"></td>
+        </tr>
+        <!-- Y PRIME -->
+        <tr>
+          <td class="notation-move">y'</td>
+          <td class="notation-description">Imagine there is a y axis across the middle of the cube. Turn the whole cube to the right from that imaginary axis. If you look up the cube, the whole cube is turned counter-clockwise.</td>
+          <td class="notation-img"><img src="notations_Y'.png" alt="y Prime Notation"></td>
+        </tr>
+        <!-- LOWERCASE -->
+        <tr>
+          <td class="notation-move">Lowercase (r)</td>
+          <td class="notation-description">For any lowercase letter, it is turning two layers instead of one. The direction is the same as the notations above.</td>
+          <td class="notation-img"><img src="notations_lowercase.png" alt="Lowercase Notation"></td>
+        </tr>
+      </table>
+    </div>
+    
+  </body>
+</html>
