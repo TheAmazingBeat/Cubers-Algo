@@ -45,6 +45,7 @@ body {
 .active {color: #00FF66 !important;}
 
 .navbar-tab:hover {background-color: #000000;}
+.navbar-tab > a:hover {background-color: #000000;}
 
 .dropdown{
 	position: relative;
