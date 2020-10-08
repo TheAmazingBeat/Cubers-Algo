@@ -1,7 +1,8 @@
 /* *************************** */
-/* ****** SHOW DROPDOWN ****** */
+/* ****** SHOW DROPDOWN ****** 
 function showDropdown(whichMenu){
   if(whichMenu == 'three'){
+    console.log('Focused');
     var menu = document.querySelector('#three-menu');
     if(menu.style.display == '' || menu.style.display === 'none')
       menu.style.display = 'block';
@@ -9,7 +10,7 @@ function showDropdown(whichMenu){
       menu.style.display = 'none';
   }
   if(whichMenu == 'other'){
-    var  menu = document.querySelector('#other-menu');
+    var menu = document.querySelector('#other-menu');
     if(menu.style.display == '' || menu.style.display === 'none')
       menu.style.display = 'block';
     else
@@ -36,9 +37,9 @@ running = false;
 //starts the timer when spacebar is pressed and resets the timer after stopping the timer
 document.addEventListener('keydown', function (event) {
   if (event.key == ' ') {
-    if (time.style.color == 'rgb(0, 255, 102)') {
-      resetTimer();
-    }
+    // if (time.style.color == 'rgb(0, 255, 102)') {
+    //   resetTimer();
+    // }
     time.style.color = '#00ff66';
   }
 }, true);
@@ -74,6 +75,7 @@ function stopTimer() {
     clearInterval(counter);
     time.textContent = timestamp;
     time.style.color = '#00ff66';
+    listTime(timestamp, scramble);
     displayScramble();
   }
 }
@@ -178,5 +180,43 @@ function displayScramble() {
 }
 
 window.onload = displayScramble();
+/* *************************** */
+/* *************************** */
+
+
+
+/* *************************** */
+/* ****** LISTING TIMES ****** */
+var table = document.querySelector('#time-table');
+var timeID = 1;
+function listTime(time, scramble){
+  //creates table elements
+  var row = document.createElement('tr'),
+  timeNum = document.createElement('td'),
+  timeCell = document.createElement('td'),
+  scrambleCell = document.createElement('td');
+
+  //add styles/classes to elements
+  row.className = 'time-row';
+  timeNum.className = 'time-cell';
+  timeCell.className = 'time-cell';
+  scrambleCell.className = 'time-cell';
+
+  //inputs parameters in the elements
+  timeNum.textContent = timeID;
+  timeCell.textContent = time;
+  for(let i = 0; i < scramble.length; i++){
+    scrambleCell.textContent += scramble[i] + ' ';
+  }
+
+  //row will append the created elements
+  row.appendChild(timeNum);
+  row.appendChild(timeCell);
+  row.appendChild(scrambleCell);
+
+  document.querySelector('#time-table').appendChild(row);
+
+  timeID++;
+}
 /* *************************** */
 /* *************************** */

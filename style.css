@@ -68,13 +68,16 @@ body {
 }
 
 .dropdown-link:hover{background: black;}
-.dropdown-link:active{background: black;}
 
 .dropdown:hover .dropdown-body{display: block;}
-
+.dropdown-body:hover{display: block;}
 
 .invisible-div {
 	height: 50px;
+}
+
+@media only screen and (max-width: 768px){
+
 }
 
 @media only screen and (max-width: 600px){
@@ -349,6 +352,20 @@ b{
 #scramble{
 	text-align: center;
 	font-size: 2em;
+}
+
+#table-container{
+	margin-top: 50px;
+}
+
+#time-table{
+	margin: auto;
+	border-collapse: collapse;
+}
+
+.time-cell{
+	border: 2px solid #ffffff;
+	padding: 15px 50px;
 }
 
 @media only screen and (max-width: 600px){
