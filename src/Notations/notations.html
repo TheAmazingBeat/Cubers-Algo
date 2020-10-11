@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Notations | Cuber's Algo</title>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <!-- Local Stylesheets -->
+    <link href="../../styles/style.css" rel="stylesheet" type="text/css"/>
+    <link href="../../styles/notations.css" rel="stylesheet" type="text/css">
     <!-- Favicon -->
-	  <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
+    <!-- Bootstrap 4.5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <!-- Font Awesome Link -->
@@ -16,32 +20,47 @@
   <body>
     
     <!-- NAVIGATION BAR -->
-    <div id="navbar">
-      <nav>
-        <ul>
-          <li class="navbar-tab">
-            <a href="../index.html">Home</a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+
+      <a class="navbar-brand text-success" href="../index.html">Cuber's Algo</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
-          <li class="navbar-tab dropdown">
-            <a href="#">3x3 <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-body" id="three-menu">
-              <li class="dropdown-link"><a href="../3x3/cross.html">Cross</a></li>
-              <li class="dropdown-link"><a href="../3x3/f2l.html">F2L</a></li>
-              <li class="dropdown-link"><a href="../3x3/oll.html">OLL</a></li>
-              <li class="dropdown-link"><a href="../3x3/pll.html">PLL</a></li>
-            </ul>
+          <!-- 3X3 DROPDOWN -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="threeByThreeMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              3x3
+            </a>
+            <div class="dropdown-menu my-dropdown" aria-labelledby="threeByThreeMenu">
+              <a class="dropdown-item" href="../3x3/cross.html">Cross</a>
+              <a class="dropdown-item" href="../3x3/f2l.html">F2L</a>
+              <a class="dropdown-item" href="../3x3/oll.html">OLL</a>
+              <a class="dropdown-item" href="../3x3/pll.html">PLL</a>
+            </div>
           </li>
-          <li class="navbar-tab dropdown">
-            <a class="active" href="#">Other <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-body" id="other-menu">
-              <li class="dropdown-link"><a href="../timer.html">Timer</a></li>
-              <li class="dropdown-link"><a class="active" href="notations.html">Notations</a></li>
-            </ul>
+          <!-- TOOLS DROPDOWN -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="toolsMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tools
+            </a>
+            <div class="dropdown-menu my-dropdown" aria-labelledby="toolsMenu">
+              <a class="dropdown-item" href="../timer.html">Timer</a>
+              <a class="dropdown-item active" href="notations.html">Notations</a>
+            </div>
           </li>
-          <li class="navbar-tab"><a href="../about.html">About</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
 
     <!-- To fix position of header since the navbar has a fixed position -->
     <div class="invisible-div"></div>
@@ -64,107 +83,112 @@
         <tr>
           <td class="notation-move">R</td>
           <td class="notation-description">Turn the right side of the cube up. If you put the right side in front of you, it is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_R.png" alt="R Notation"></td>
+          <td class="notation-img"><img src="images/notations_R.png" alt="R Notation"></td>
         </tr>
         <!-- R PRIME -->
         <tr>
           <td class="notation-move">R'</td>
           <td class="notation-description">Turn the right side of the cube up. If you put the right side in front of you, it is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_R'.png" alt="R Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_R'.png" alt="R Prime Notation"></td>
         </tr>
         <!-- L -->
         <tr>
           <td class="notation-move">L</td>
           <td class="notation-description">Turn the left side of the cube down. If you put the left side in front of you, it is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_L.png" alt="L Notation"></td>
+          <td class="notation-img"><img src="images/notations_L.png" alt="L Notation"></td>
         </tr>
         <!-- L PRIME -->
         <tr>
           <td class="notation-move">L'</td>
           <td class="notation-description">Turn the left side of the cube up. If you put the left side in front of you, it is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_L'.png" alt="L Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_L'.png" alt="L Prime Notation"></td>
         </tr>
         <!-- U -->
         <tr>
           <td class="notation-move">U</td>
           <td class="notation-description">Turn the top layer to the left. If you look up the cube, it is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_U.png" alt="U Notation"></td>
+          <td class="notation-img"><img src="images/notations_U.png" alt="U Notation"></td>
         </tr>
         <!-- U PRIME -->
         <tr>
           <td class="notation-move">U'</td>
           <td class="notation-description">Turn the top layer to the right. If you look up the cube, it is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_U'.png" alt="U Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_U'.png" alt="U Prime Notation"></td>
         </tr>
         <!-- D -->
         <tr>
           <td class="notation-move">D</td>
           <td class="notation-description">Turn the bottom layer to the right. If you look down the cube, it is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_D.png" alt="D Notation"></td>
+          <td class="notation-img"><img src="images/notations_D.png" alt="D Notation"></td>
         </tr>
         <!-- D PRIME -->
         <tr>
           <td class="notation-move">D'</td>
           <td class="notation-description">Turn the bottom layer to the left. If you look down the cube, it is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_D'.png" alt="D Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_D'.png" alt="D Prime Notation"></td>
         </tr>
         <!-- F -->
         <tr>
           <td class="notation-move">F</td>
           <td class="notation-description">Turn the layer in front of you clockwise.</td>
-          <td class="notation-img"><img src="notations_F.png" alt="F Notation"></td>
+          <td class="notation-img"><img src="images/notations_F.png" alt="F Notation"></td>
         </tr>
         <!-- F PRIME -->
         <tr>
           <td class="notation-move">F'</td>
           <td class="notation-description">Turn the layer in front of you counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_F'.png" alt="F Prmie Notation"></td>
+          <td class="notation-img"><img src="images/notations_F'.png" alt="F Prmie Notation"></td>
         </tr>
         <!-- B -->
         <tr>
           <td class="notation-move">B</td>
           <td class="notation-description">Turn the layer on the back of the cube clockwise.</td>
-          <td class="notation-img"><img src="notations_B.png" alt="B Notation"></td>
+          <td class="notation-img"><img src="images/notations_B.png" alt="B Notation"></td>
         </tr>
         <!-- B PRIME -->
         <tr>
           <td class="notation-move">B'</td>
           <td class="notation-description">Turn the layer on the back of the cube counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_B'.png" alt="B Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_B'.png" alt="B Prime Notation"></td>
         </tr>
         <!-- X -->
         <tr>
           <td class="notation-move">x</td>
           <td class="notation-description">Imagine there is an x axis across the middle of the cube. Turn the whole cube upwards from that imaginary axis. If you look at the right side of the cube, the whole cube is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_X.png" alt="x Notation"></td>
+          <td class="notation-img"><img src="images/notations_X.png" alt="x Notation"></td>
         </tr>
         <!-- X PRIME -->
         <tr>
           <td class="notation-move">x'</td>
           <td class="notation-description">Imagine there is an x axis across the middle of the cube. Turn the whole cube downwards from that imaginary axis. If you look at the right side of the cube, the whole cube is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_X'.png" alt="x Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_X'.png" alt="x Prime Notation"></td>
         </tr>
         <!-- Y -->
         <tr>
           <td class="notation-move">y</td>
           <td class="notation-description">Imagine there is a y axis across the middle of the cube. Turn the whole cube to the left from that imaginary axis. If you look up the cube, the whole cube is turned clockwise.</td>
-          <td class="notation-img"><img src="notations_Y.png" alt="y Notation"></td>
+          <td class="notation-img"><img src="images/notations_Y.png" alt="y Notation"></td>
         </tr>
         <!-- Y PRIME -->
         <tr>
           <td class="notation-move">y'</td>
           <td class="notation-description">Imagine there is a y axis across the middle of the cube. Turn the whole cube to the right from that imaginary axis. If you look up the cube, the whole cube is turned counter-clockwise.</td>
-          <td class="notation-img"><img src="notations_Y'.png" alt="y Prime Notation"></td>
+          <td class="notation-img"><img src="images/notations_Y'.png" alt="y Prime Notation"></td>
         </tr>
         <!-- LOWERCASE -->
         <tr>
           <td class="notation-move">Lowercase (r)</td>
           <td class="notation-description">For any lowercase letter, it is turning two layers instead of one. The direction is the same as the notations above.</td>
-          <td class="notation-img"><img src="notations_lowercase.png" alt="Lowercase Notation"></td>
+          <td class="notation-img"><img src="images/notations_lowercase.png" alt="Lowercase Notation"></td>
         </tr>
       </table>
     </div>
     
-    <script src="script.js"></script>
+    <!-- jQuery, Popper, Bootstrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Local Script -->
+    <script src="../../scripts/script.js"></script>
   </body>
 </html>

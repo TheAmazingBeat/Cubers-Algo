@@ -1,0 +1,128 @@
+/* ********************** */
+/* ****** 3x3 Pages ****** */
+.excerpt > .page-header{
+	color: white;
+	font-size: 18pt;
+}
+
+.excerpt{
+	margin-top: 25px;
+	font-size: 14pt;
+	width: 50%;
+	margin: auto;
+}
+
+.videos{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.yt-video{
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 40px 0;
+}
+.column {
+	width: 40%;
+	margin: 40px 0;
+}
+
+.col-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.sect-col{
+	width: 50%;
+}
+
+.category{
+	background: #222222;
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+
+.category-heading {
+	text-align: center;
+	padding: 10px;
+	background: #00ff66;
+	color: black;
+	font-size: 20pt;
+	border-radius: 10px;
+	margin: 0;
+}
+
+.algos{	margin: 20px 0;}
+
+.algorithm-content {
+	width: 85%;
+	margin: 10px auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 10px;
+	background: #202020;
+	border-radius: 10px;
+}
+
+.algorithm-content:hover{
+	background: #000000;
+	color: #00FF66;
+}
+
+.algo-pic{
+	flex: 2;
+}
+
+.algo-pic > img{
+	display: block;
+	max-width: 125px;
+	max-height: 125px;
+	margin: auto;
+}
+
+.algo-text {
+	flex: 3;
+}
+
+.algo-name {
+	font-size: 18pt;
+	margin: 0;
+}
+
+.algo-text p{
+	font-size: 14pt;
+}
+
+/* For screens 1024px and under*/
+@media only screen and (max-width: 1024px) {
+	.algo-text{
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	/* Stacking columns */
+	.column{
+		width: 80%;
+		padding: 10px;
+	}
+
+	.sect-full-width{
+		width: 80%;
+	}
+
+	.sect-col{
+		width: 100%;
+	}
+}
+/* ********************** */
+/* ********************** */

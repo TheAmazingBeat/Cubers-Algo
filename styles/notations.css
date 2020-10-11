@@ -1,0 +1,47 @@
+/* ********************** */
+/* *** Notations Page *** */
+#notations{
+	width: 75%;
+}
+.notation-intro {
+	margin: 10px auto;
+}
+
+.notation-text {
+	font-size: 16pt;
+}
+
+.notation-intro>b {
+	color: rgb(43, 160, 90);
+}
+
+#notation-table{
+	margin: 5% auto;
+	width: 75%;
+	border-collapse: collapse;
+	text-align: center;
+	border: 3px;
+}
+
+#notation-table tr:hover{
+	background-color: black;
+	color: #00FF66;
+}
+
+#notation-table td{
+	border: 1px solid white;
+}
+
+.notation-move{
+	font-size: 18pt;
+}
+
+.notation-description{
+	width: 50%;
+}
+
+.notation-img > img{
+	width: 50%;
+}
+/* ********************** */
+/* ********************** */

@@ -1,0 +1,56 @@
+/* ********************** */
+/* *** GLOBAL STYLES **** */
+body {
+	margin: 0;
+	background: #2F2F2F !important;
+	font-family: Quicksand, sans-serif;
+	color: white !important;
+}
+
+/* Navigation Bar */
+.navbar{
+	background-color: #232323;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.navbar-logo{
+	width: 10%;
+}
+
+.nav-item{
+	padding: 0 20px;
+}
+
+.my-dropdown{
+	background-color: #232323 !important;
+	color: white;
+}
+
+.my-dropdown > .active{
+	background-color: black !important;
+}
+
+.dropdown-item{
+	color: white !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+	background-color: #00ff66 !important;
+	color: #222222 !important;
+}
+/* ************ */
+
+.invisible-div {
+	height: 100px !important;
+}
+
+.page-header {
+	text-align: center;
+	color: #00FF66
+}
+
+b{
+	color: #048b31;
+}
+/* ********************** */
+/* ********************** */

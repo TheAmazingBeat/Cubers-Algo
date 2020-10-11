@@ -1,27 +1,4 @@
 /* *************************** */
-/* ****** SHOW DROPDOWN ****** 
-function showDropdown(whichMenu){
-  if(whichMenu == 'three'){
-    console.log('Focused');
-    var menu = document.querySelector('#three-menu');
-    if(menu.style.display == '' || menu.style.display === 'none')
-      menu.style.display = 'block';
-    else
-      menu.style.display = 'none';
-  }
-  if(whichMenu == 'other'){
-    var menu = document.querySelector('#other-menu');
-    if(menu.style.display == '' || menu.style.display === 'none')
-      menu.style.display = 'block';
-    else
-      menu.style.display = 'none';
-  }
-}
-/* *************************** */
-/* *************************** */
-
-
-/* *************************** */
 /* STOPWATCH VARIABLES */
 var time = document.querySelector('#time'),
   minute = 0,
@@ -29,7 +6,7 @@ var time = document.querySelector('#time'),
   centisecond = 0,
   decisecond = 0,
   timestamp = '',
-  counter
+  counter,
 running = false;
 /* ******************* */
 
@@ -111,10 +88,12 @@ function displayTime() {
   }
 
 
-  // Conditional ternary operator:
-  // |condition| ? |statement| : |else statement|
-  // if the number is greater than nine, it will return to 0
-  // this is done for each digit for minute and second
+  /* 
+   * Conditional ternary operator:
+   * |condition| ? |statement| : |else statement|
+   * if the number is greater than nine, it will return to 0
+   * this is done for each digit for minute and second
+  */
   timestamp = (minute ? (minute > 9 ? minute : '0' + minute) : '00') + ':' +
     (second ? (second > 9 ? second : '0' + second) : '00') + ':' +
     (centisecond) +

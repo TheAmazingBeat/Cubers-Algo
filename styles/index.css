@@ -1,0 +1,28 @@
+/* ********************** */
+/* ***** HONE PAGE ***** */
+/* Header */
+#header-image {
+	display: block;
+	margin: 10px auto;
+}
+
+/* Introduction Section */
+#introduction{
+	width: 75%;
+}
+
+#introduction > p {
+	font-size: 18pt;
+}
+
+#get-started-btn{
+	display: block;
+	margin: auto;
+	background: #00ff66;
+	color: #000000;
+	padding: 20px 35px;
+	border: 0px;
+	border-radius: 5px;
+}
+/* ********************** */
+/* ********************** */
