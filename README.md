@@ -3,6 +3,9 @@ This website is for cubers, beginners and veterans. Beginners can use this site 
 
 ## Version History:
 
+## v0.51:
+- Put `index.html` (Home Page) to `root` in master branch so that Github can see it
+
 ## v0.5:
 - Implemented the Bootstrap framework in the website
     ### New Features w/ Bootstrap:
