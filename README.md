@@ -3,12 +3,12 @@ This website is for cubers, beginners and veterans. Beginners can use this site 
 
 ## Version History:
 
-## v0.51:
+### v0.51:
 - Put `index.html` (Home Page) to `root` in master branch so that Github can see it
 
-## v0.5:
+### v0.5:
 - Implemented the Bootstrap framework in the website
-    ### New Features w/ Bootstrap:
+    #### New Features w/ Bootstrap:
     - Responsive Navigation Bar
     - Container
 - Implemented JQuery Library in the website
@@ -23,18 +23,18 @@ This website is for cubers, beginners and veterans. Beginners can use this site 
 - Updated README for more detailed changes
 
 
-## v0.2:
-### New Features:
+### v0.2:
+#### New Features:
 - Added **Scramble Generator**
     - Makes a scramble for the cube for the user
 - Added **List of Times**
     - Every time user finishes a time, the page records it
 
-## v0.15:
-### New Features:
+### v0.15:
+#### New Features:
 - Timer can now be started using the spacebar
 - Removed the reset button
 
-## v0.1:
+### v0.1:
 - Base of operations...
 - The start of an era...
