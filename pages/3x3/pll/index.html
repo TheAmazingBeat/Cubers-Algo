@@ -4,14 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PLL | Cuber's Algo</title>
+  <title>PLL - Cuber's Algo</title>
   <!-- Local Stylesheets -->
-  <link href="../../styles/style.css" rel="stylesheet" type="text/css"/>
-  <link href="../../styles/three_by_three.css" rel="stylesheet" type="text/css">
+  <link href="../../../styles/style.css" rel="stylesheet" type="text/css" />
+  <link href="../../../styles/three-by-three.css" rel="stylesheet" type="text/css">
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="../../../favicon.ico">
   <!-- Bootstrap 4.5 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <!--Google Font-->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -24,48 +25,46 @@
   <!-- NAVIGATION BAR -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 
-		<a class="navbar-brand text-success" href="../../index.html">Cuber's Algo</a>
-  
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
-		  aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-  
-		<div class="collapse navbar-collapse" id="main-navbar">
-		  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			 <li class="nav-item">
-				<a class="nav-link" href="../../index.html">Home</a>
-			 </li>
-			 <!-- 3X3 DROPDOWN -->
-			 <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle active" href="#" id="threeByThreeMenu" role="button" data-toggle="dropdown"
-				  aria-haspopup="true" aria-expanded="false">
-				  3x3
-				</a>
-				<div class="dropdown-menu my-dropdown" aria-labelledby="threeByThreeMenu">
-				  <a class="dropdown-item" href="cross.html">Cross</a>
-				  <a class="dropdown-item" href="f2l.html">F2L</a>
-				  <a class="dropdown-item" href="oll.html">OLL</a>
-				  <a class="dropdown-item active" href="pll.html">PLL</a>
-				</div>
-			 </li>
-			 <!-- TOOLS DROPDOWN -->
-			 <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="toolsMenu" role="button" data-toggle="dropdown"
-				  aria-haspopup="true" aria-expanded="false">
-				  Tools
-				</a>
-				<div class="dropdown-menu my-dropdown" aria-labelledby="toolsMenu">
-				  <a class="dropdown-item" href="../timer.html">Timer</a>
-				  <a class="dropdown-item" href="../Notations/notations.html">Notations</a>
-				</div>
-			 </li>
-			 <li class="nav-item">
-				<a class="nav-link" href="../about.html">About</a>
-			 </li>
-		  </ul>
-		</div>
-	 </nav>
+    <a class="navbar-brand text-success" href="../../../">Cuber's Algo</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mx-auto mr-auto mt-2 mt-lg-0">
+
+        <!-- 3X3 DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="threeByThreeMenu" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            3x3
+          </a>
+          <div class="dropdown-menu my-dropdown" aria-labelledby="threeByThreeMenu">
+            <a class="dropdown-item" href="../cross/">Cross</a>
+            <a class="dropdown-item" href="../f2l/">F2L</a>
+            <a class="dropdown-item" href="../oll/">OLL</a>
+            <a class="dropdown-item active" href="../pll/">PLL</a>
+          </div>
+        </li>
+        <!-- TOOLS DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="toolsMenu" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Tools
+          </a>
+          <div class="dropdown-menu my-dropdown" aria-labelledby="toolsMenu">
+            <a class="dropdown-item" href="../../timer/">Timer</a>
+            <a class="dropdown-item" href="../../notations/">Notations</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- To fix position of header since the navbar has a fixed position -->
   <div class="invisible-div"></div>
@@ -75,14 +74,15 @@
     <h1 class="page-header">Permutation of the Last Layer (PLL)</h1>
 
     <div class="container">
-        <div class="excerpt">
-          <p>PLL is the last step in solving a Rubik's Cube. It is the "P" in the method CFOP.
-            The goal of the last step is to fully solve the last layer.
-            The algorithms below uses yellow as the last layer, green as the front, red as the left, orange as the right, and blue on the back.
-            What PLL does is swapping the corners, edges, or maybe even both. 
-            There are less algorithms to memorize than OLL since there are only 21 of them.
-          </p>
-        </div>
+      <div class="excerpt">
+        <p>PLL is the last step in solving a Rubik's Cube. It is the "P" in the method CFOP.
+          The goal of the last step is to fully solve the last layer.
+          The algorithms below uses yellow as the last layer, green as the front, red as the left, orange as the right,
+          and blue on the back.
+          What PLL does is swapping the corners, edges, or maybe even both.
+          There are less algorithms to memorize than OLL since there are only 21 of them.
+        </p>
+      </div>
       <div class="row">
         <!-- FIRST COLUMN -->
         <div class="column column-one">
@@ -93,7 +93,7 @@
               <!-- UA PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Ua Perm.png">
+                  <img src="../pll/images/pll_Ua Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Ua Perm</h5>
@@ -103,7 +103,7 @@
               <!-- UB PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Ub Perm.png">
+                  <img src="../pll/images/pll_Ub Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Ub Perm</h5>
@@ -113,7 +113,7 @@
               <!-- H PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_H Perm.png">
+                  <img src="../pll/images/pll_H Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">H Perm</h5>
@@ -123,7 +123,7 @@
               <!-- Z PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Z Perm.png">
+                  <img src="../pll/images/pll_Z Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Z Perm</h5>
@@ -144,7 +144,7 @@
               <!-- AA PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Aa Perm.png">
+                  <img src="../pll/images/pll_Aa Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Aa Perm</h5>
@@ -154,7 +154,7 @@
               <!-- AB PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Ab Perm.png">
+                  <img src="../pll/images/pll_Ab Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Ab Perm</h5>
@@ -164,7 +164,7 @@
               <!-- E PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_E Perm.png">
+                  <img src="../pll/images/pll_E Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">E Perm</h5>
@@ -188,7 +188,7 @@
                   <!-- RA PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_Ra Perm.png">
+                      <img src="../pll/images/pll_Ra Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">Ra Perm</h5>
@@ -198,7 +198,7 @@
                   <!-- RB PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_Rb Perm.png">
+                      <img src="../pll/images/pll_Rb Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">Rb Perm</h5>
@@ -208,7 +208,7 @@
                   <!-- F PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_F Perm.png">
+                      <img src="../pll/images/pll_F Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">F Perm</h5>
@@ -223,7 +223,7 @@
                   <!-- JA PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_Ra Perm.png">
+                      <img src="../pll/images/pll_Ra Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">Ja Perm</h5>
@@ -233,7 +233,7 @@
                   <!-- JB PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_Jb Perm.png">
+                      <img src="../pll/images/pll_Jb Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">Jb Perm</h5>
@@ -243,7 +243,7 @@
                   <!-- T PERM -->
                   <div class="algorithm-content">
                     <div class="algo-pic">
-                      <img src="../3x3/pll_images/pll_T Perm.png">
+                      <img src="../pll/images/pll_T Perm.png">
                     </div>
                     <div class="algo-text">
                       <h5 class="algo-name">T Perm</h5>
@@ -268,7 +268,7 @@
               <!-- V PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_V Perm.png">
+                  <img src="../pll/images/pll_V Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">V Perm</h5>
@@ -278,7 +278,7 @@
               <!-- Y PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Y Perm.png">
+                  <img src="../pll/images/pll_Y Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Y Perm</h5>
@@ -288,7 +288,7 @@
               <!-- NA PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Na Perm.png">
+                  <img src="../pll/images/pll_Na Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Na Perm</h5>
@@ -298,7 +298,7 @@
               <!-- NB PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Nb Perm.png">
+                  <img src="../pll/images/pll_Nb Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Nb Perm</h5>
@@ -319,7 +319,7 @@
             <div class="algos">
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Ga Perm.png">
+                  <img src="../pll/images/pll_Ga Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Ga Perm</h5>
@@ -329,7 +329,7 @@
               <!-- GB PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Gb Perm.png">
+                  <img src="../pll/images/pll_Gb Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Gb Perm</h5>
@@ -339,7 +339,7 @@
               <!-- GC PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Gc Perm.png">
+                  <img src="../pll/images/pll_Gc Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Gc Perm</h5>
@@ -349,7 +349,7 @@
               <!-- GD PERM -->
               <div class="algorithm-content">
                 <div class="algo-pic">
-                  <img src="../3x3/pll_images/pll_Gd Perm.png">
+                  <img src="../pll/images/pll_Gd Perm.png">
                 </div>
                 <div class="algo-text">
                   <h5 class="algo-name">Gd Perm</h5>
@@ -364,9 +364,15 @@
     </div>
 
     <!-- jQuery, Popper, Bootstrap Javascript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
     <!-- Local Script -->
     <script src="../../scripts/script.js"></script>
 </body>
