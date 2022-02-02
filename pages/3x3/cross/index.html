@@ -7,7 +7,7 @@
 	<title>Cross - Cuber's Algo</title>
 	<!-- Local Stylesheets -->
 	<link href="../../../styles/style.css" rel="stylesheet" type="text/css" />
-	<link href="../../../styles/three-by-three.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/videos.css" rel="stylesheet" type="text/css">
 	<!-- Favicon -->
 	<link rel="icon" href="../../../favicon.ico">
 	<!-- Bootstrap 4.5 -->
@@ -25,7 +25,7 @@
 	<!-- NAVIGATION BAR -->
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 
-		<a class="navbar-brand text-success" href="../../../">Cuber's Algo</a>
+		<!-- <a class="navbar-brand text-success" href="../../../">Cuber's Algo</a> -->
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
 			aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,45 +68,77 @@
 		</div>
 	</nav>
 
-	<!-- To fix position of header since the navbar has a fixed position -->
-	<div class="invisible-div"></div>
-	<h1 class="page-header">Cross</h1>
+	<header class="header">
+		<!-- To fix position of header since the navbar has a fixed position -->
+		<div class="invisible-div"></div>
+		<h1 class="page-header">Cross</h1>
+	</header>
 
-	<div class="container">
-		<div class="excerpt">
-			<p>
-				Making the cross of the cube is the <b>first step</b> in making the cube.
-				It is the "C" part of CFOP. The goal of this first step is to make a cross of any color that's on the bottom
-				layer, with edges that match its center.
-				In this website, the bottom layer will be white meaning we will be making a white cross. For making the
-				cross, it is mostly <b>intuitive</b>,
-				meaning that it is better for one not to memorize algorithms, but instead, know how the cube works and make
-				a cross.
-				For beginners, the best way to start is to use the <b>"Daisy Method"</b> which is getting all the white
-				edges on the top and then make a cross from there.
-				To help you get started, here are some videos since there are no certain cases of algorithms to memorize.
-			</p>
-		</div>
-
-		<h3 class="page-header">Videos</h2>
-			<div class="videos">
-				<h4>J Perm's Rubik's Cube: How to Learn the CFOP Speedcubing Method (recommended)</h4>
-				<iframe class="yt-video" width="560" height="315" src="https://www.youtube.com/embed/MS5jByTX_pk"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
-				<h4>Paradox Cubing's CFOP: Cross for Beginners</h4>
-				<iframe class="yt-video" width="560" height="315" src="https://www.youtube.com/embed/WzE7SyDB8vA?start=107"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
-				<h4>The Cubicle's How to Solve a Rubik's Cube: An Easy Tutorial</h4>
-				<iframe class="yt-video" width="560" height="315" src="https://www.youtube.com/embed/1t1OL2zN0LQ?start=307"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
+	<!-- Main Content -->
+	<main>
+		<section class="section">
+			<div class="container">
+				<div class="row">
+					<p class="excerpt">
+						Making the cross of the cube is the <b>first step</b> in making the cube.
+						It is the "C" part of CFOP. The goal of this first step is to make a cross of any color that's on the
+						bottom
+						layer, with edges that match its center.
+						In this website, the bottom layer will be white meaning we will be making a white cross. For making
+						the
+						cross, it is mostly <b>intuitive</b>,
+						meaning that it is better for one not to memorize algorithms, but instead, know how the cube works and
+						make
+						a cross.
+						For beginners, the best way to start is to use the <b>"Daisy Method"</b> which is getting all the
+						white
+						edges on the top and then make a cross from there.
+						To help you get started, here are some videos since there are no certain cases of algorithms to
+						memorize.
+					</p>
+				</div>
 			</div>
-	</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<!-- <h3 class="page-header">Videos</h2> -->
+					<div class=" row">
+						<div class="tutorial-video col">
+							<h4>J Perm's Rubik's Cube: How to Learn the CFOP Speedcubing Method (recommended)</h4>
+							<iframe class="yt-video" width="560" height="315" src="https://www.youtube.com/embed/MS5jByTX_pk"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="tutorial-video col">
+							<h4>Paradox Cubing's CFOP: Cross for Beginners</h4>
+							<iframe class="yt-video" width="560" height="315"
+								src="https://www.youtube.com/embed/WzE7SyDB8vA?start=107" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="tutorial-video col">
+							<h4>The Cubicle's How to Solve a Rubik's Cube: An Easy Tutorial</h4>
+							<iframe class="yt-video" width="560" height="315"
+								src="https://www.youtube.com/embed/1t1OL2zN0LQ?start=307" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</div>
+					</div>
+
+
+			</div>
+		</section>
+	</main>
+
+
 
 	<!-- jQuery, Popper, Bootstrap Javascript -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -119,7 +151,7 @@
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 	</script>
 	<!-- Local Script -->
-	<script src="../../scripts/script.js"></script>
+	<script src="../../../scripts/script.js"></script>
 </body>
 
 </html>

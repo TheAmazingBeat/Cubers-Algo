@@ -1,0 +1,24 @@
+/* For pages that has tutorial videos */
+.excerpt{
+	margin-top: 25px;
+	margin: auto;
+}
+
+.row{
+   margin: 1.5rem;
+}
+
+.row>.tutorial-video{
+   margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+   justify-content: center;
+}
+
+.yt-video{
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+

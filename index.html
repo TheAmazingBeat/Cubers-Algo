@@ -18,6 +18,19 @@
     rel="stylesheet" />
   <!-- Font Awesome Link -->
   <script src="https://kit.fontawesome.com/d6a4ed92eb.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery, Popper, Bootstrap Javascript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous" defer>
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous" defer>
+  </script>
+  <!-- Local Script -->
+  <script src="../scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -25,7 +38,7 @@
   <!-- NAVIGATION BAR -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 
-    <a class="navbar-brand text-success" href="./">Cuber's Algo</a>
+    <!-- <a class="navbar-brand text-success" href="./">Cuber's Algo</a> -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +69,7 @@
             Tools
           </a>
           <div class="dropdown-menu my-dropdown" aria-labelledby="toolsMenu">
-            <a class="dropdown-item" href="pages/timer/">Timer</a>
+            <a class="dropdown-item" href="pages/timer/"><i class="fas fa-stopwatch"></i> Timer</i></a>
             <a class="dropdown-item" href="pages/notations/">Notations</a>
           </div>
         </li>
@@ -73,38 +86,27 @@
   <main>
     <!-- HEADER -->
     <header class="header">
-      <h1 class="page-header">Cuber's Algo</h1>
+      <h1 class="page-header my-2">Cuber's Algo</h1>
       <img id="header-image" width="256" alt="Cuber's Algo Logo" src="algo_logo.png" />
     </header>
 
-    <section>
+    <section class="section">
       <!-- INTRODUCTION -->
-      <div class="container" id="introduction">
-        <p>
-          Cuber's Algorithm gives you the algorithms to solve a Rubik's Cube. This
-          site focuses more on the <b>CFOP method</b> which is the most famous method when
-          solving a Rubik's cube. The method is basically solving the cube <b>layer by layer</b>.
-          Some of the steps shows you to videos and some shows you cases for algorithms.
-          This site also has a timer for you to quickly practice those algorithms you have learned.
-          Enjoy!
-        </p>
+      <div class="container">
+        <div id="introduction">
+          <p>
+            Cuber's Algorithm gives you the algorithms to solve a Rubik's Cube. This
+            site focuses more on the <b>CFOP method</b> which is the most famous method when
+            solving a Rubik's cube. The method is solving the cube <b>layer by layer</b>.
+            Some of the steps shows you to videos and some shows you cases for algorithms.
+            This site also has a timer for you to quickly practice those algorithms you have learned.
+            Enjoy!
+          </p>
+        </div>
       </div>
     </section>
 
   </main>
-
-  <!-- jQuery, Popper, Bootstrap Javascript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
-  <!-- Local Script -->
-  <script src="../scripts/script.js"></script>
 </body>
 
 </html>
