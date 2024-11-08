@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Algos
-    </ion-title>
+    <ion-title> Algos </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,4 +11,31 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- 3x3 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-text class="ion-text-center">
+          <h1>3x3</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="8">
+        <ion-button expand="block" [routerLink]="['three', 'notations']">
+          Notations
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" sizeMd="4">
+        <ion-button expand="block" [routerLink]="['three', 'three-oll']"> OLL </ion-button>
+      </ion-col>
+      <ion-col size="6" sizeMd="4">
+        <ion-button expand="block" [routerLink]="['three', 'three-pll']"> PLL </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
