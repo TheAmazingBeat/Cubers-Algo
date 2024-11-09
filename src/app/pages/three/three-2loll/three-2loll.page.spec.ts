@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ThreeOllPage } from './three-oll.page';
+import { Three2LOllPage } from './three-2loll.page';
 
-describe('ThreeOllPage', () => {
-  let component: ThreeOllPage;
-  let fixture: ComponentFixture<ThreeOllPage>;
+describe('Three2LOllPage', () => {
+  let component: Three2LOllPage;
+  let fixture: ComponentFixture<Three2LOllPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreeOllPage);
+    fixture = TestBed.createComponent(Three2LOllPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

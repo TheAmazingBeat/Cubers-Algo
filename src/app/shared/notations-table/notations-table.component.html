@@ -5,6 +5,7 @@
       size="6"
       sizeMd="4"
       class="d-flex flex-column justify-content-center align-items-center"
+      [style]="{ borderTopLeftRadius: $index === 0 ? '1rem' : '0', borderBottomLeftRadius: $index === 16 ? '1rem' : '0' }"
     >
       <h1>{{ notation.notation }}</h1>
       <p class="px-4">{{ notation.description }}</p>
@@ -13,6 +14,7 @@
       size="6"
       sizeMd="4"
       class="d-flex flex-column justify-content-center align-items-center"
+      [style]="{ borderTopRightRadius: $index === 0 ? '1rem' : '0', borderBottomRightRadius: $index === 16 ? '1rem' : '0' }"
     >
       <img [src]="notation.imgSrc" [alt]="notation.imgAlt" />
     </ion-col>

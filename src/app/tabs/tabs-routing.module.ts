@@ -13,10 +13,10 @@ const routes: Routes = [
           import('../tab1-algos/tab1.module').then((m) => m.Tab1PageModule),
       },
       {
-        path: 'algos/three/three-oll',
+        path: 'algos/three/three-2loll',
         loadChildren: () =>
-          import('../pages/three/three-oll/three-oll.module').then(
-            (m) => m.ThreeOllPageModule
+          import('../pages/three/three-2loll/three-2loll.module').then(
+            (m) => m.Three2LOllPageModule
           ),
       },
       {

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ThreeOllPage } from './three-oll.page';
+import { Three2LOllPage } from './three-2loll.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ThreeOllPage
-  }
+    component: Three2LOllPage,
+  },
 ];
 
 @NgModule({
