@@ -1,0 +1,21 @@
+<ion-grid class="notation-table ion-margin-vertical">
+  @for (notation of notations; track notation.notation) {
+  <ion-row class="ion-justify-content-center">
+    <ion-col
+      size="6"
+      sizeMd="4"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <h1>{{ notation.notation }}</h1>
+      <p class="px-4">{{ notation.description }}</p>
+    </ion-col>
+    <ion-col
+      size="6"
+      sizeMd="4"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <img [src]="notation.imgSrc" [alt]="notation.imgAlt" />
+    </ion-col>
+  </ion-row>
+  }
+</ion-grid>
