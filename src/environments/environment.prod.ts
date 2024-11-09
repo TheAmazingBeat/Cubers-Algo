@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  imgUrl: 'https://imagedelivery.net/zY7tEE_ID2cqpNbqGuYeQA',
 };
