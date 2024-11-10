@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-button (click)="close()">Close</ion-button>
     </ion-buttons>
@@ -9,8 +9,16 @@
 
 <ion-content>
   <ion-grid class="h-full">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="8" sizeLg="10">
+        <ion-text>
+          <h1>{{ sequence }}</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
     <ion-row class="ion-justify-content-center h-full">
-      <ion-col size="12" sizeMd="8" sizeLg="10" class="h-full">
+      <ion-col size="12" sizeMd="8" sizeLg="10">
         <app-twisty [sequence]="sequence" [setupAlgo]="setupAlgo"></app-twisty>
       </ion-col>
     </ion-row>

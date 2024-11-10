@@ -74,7 +74,7 @@ export class ThreePllPage {
     },
     {
       name: 'E',
-      sequences: ["x' (R U' R' D) (R U R' D') (R U R' D) (R U' R' D')"],
+      sequences: ["x' (R U' R' D) (R U R' D') (R U R' D) (R U' R' D') x"],
       imgUrl: `${environment.imgUrl}/9cb15fa9-8947-4077-e09f-bfe89579e400/128`,
       imgAlt: '3x3 E Perm Algo',
       simulationUrls: [
