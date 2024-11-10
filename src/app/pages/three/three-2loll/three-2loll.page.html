@@ -13,4 +13,18 @@
       <ion-title size="large">3x3 2-Look OLL</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <!-- 1st Look -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="8" sizeLg="10">
+        <app-algo-category
+          categoryTitle="1st Look"
+          [algos]="firstLook"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <!-- 2nd Look -->
+  </ion-grid>
 </ion-content>

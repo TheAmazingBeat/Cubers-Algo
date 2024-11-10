@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-card-header color="secondary" class="ion-text-center">
+    <ion-card-title>
+      <h1>{{ categoryTitle }}</h1>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-row class="py-4">
+      @for (item of algos; track $index) {
+      <ion-col size="12" sizeLg="6">
+        <app-algo [algo]="item"></app-algo>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-card-content>
+</ion-card>
