@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>{{ name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="h-full">
+    <ion-row class="ion-justify-content-center h-full">
+      <ion-col size="12" sizeMd="8" sizeLg="10" class="h-full">
+        <app-twisty [sequence]="sequence" [setupAlgo]="setupAlgo"></app-twisty>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

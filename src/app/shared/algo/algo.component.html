@@ -14,7 +14,8 @@
 
     <div class="algo-sequence">
       <ion-text>
-        @for (sequence of sequences; track $index) { @if
+        @for (sequence of sequences; track $index) {
+        <!-- @if
         (simulationUrls.length > 0) {
         <ion-button color="tertiary" [href]="simulationUrls[$index]" target="_blank">
           @for (line of sequence; track $index) {
@@ -22,14 +23,15 @@
           <br />
           }
         </ion-button>
-        } @else {
-        <ion-button color="tertiary">
+        } @else { -->
+        <ion-button color="tertiary" (click)="openModal(algo?.name, sequence, algo?.setupAlgo)">
           @for (line of sequence; track $index) {
           {{ line }}
           <br />
           }
         </ion-button>
-        } }
+        <!-- }  -->
+        }
       </ion-text>
     </div>
   </div>

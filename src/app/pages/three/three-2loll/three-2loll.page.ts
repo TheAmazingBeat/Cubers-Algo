@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Algo } from 'src/app/interfaces/algos';
+import { AlgoModalComponent } from 'src/app/shared/algo-modal/algo-modal.component';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./three-2loll.page.scss'],
 })
 export class Three2LOllPage {
+  isModalOpen = false;
+
   firstLook: Algo[] = [
     {
       name: 'Line',
@@ -17,6 +21,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.F_(U_R_U-_R-)_F-&alg=F_(R_U_R-_U-)_F-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Elbow',
@@ -26,15 +31,17 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.f_(U_R_U-_R-)_f-&alg=f_(R_U_R-_U-)_f-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Dot',
-      sequences: ["[F (R U R' U') F']\n[f (R U R' U') f']"],
+      sequences: ["F (R U R' U') F'\nf (R U R' U') f'"],
       imgUrl: `${environment.imgUrl}/842170e7-6854-421e-2ab0-c8e1cabfd000/128`,
       imgAlt: '3x3 Dot Algo',
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.f_(U_R_U-_R-)_f-_F_(U_R_U-_R-)_F-&alg=F_(R_U_R-_U-)_F-_f_(R_U_R-_U-)_f-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
   ];
 
@@ -47,6 +54,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2_._y2_._R_U2_R-_U-_R_U-_R-&alg=R_U_R-_U_R_U2_R-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Antisune',
@@ -56,6 +64,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.R_U_R-_U_R_U2_R-&alg=R_U2_R-_U-_R_U-_R-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Headlights',
@@ -65,6 +74,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.R2_D_(R-_U2_R)_D-_(R-_U2_R-).R2_D_(R-_U2_R)_D-_(R-_U2_R-)&alg=R2_D_(R-_U2_R)_D-_(R-_U2_R-)&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'T',
@@ -74,6 +84,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.(r_U_R-_U-)_r-_(F_R_F-).(r_U_R-_U-)_r-_(F_R_F-)&alg=(r_U_R-_U-)_r-_(F_R_F-)&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'H',
@@ -83,6 +94,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.F_(R_U_R-_U-)_(R_U_R-_U-)(R_U_R-_U-)_F-.&alg=F_(R_U_R-_U-)_(R_U_R-_U-)(R_U_R-_U-)_F-&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Bowtie',
@@ -92,6 +104,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.F-_(r_U_R-_U-)_r-_F_R.F-_(r_U_R-_U-)_r-_F_R&alg=F-_(r_U_R-_U-)_r-_F_R&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
     {
       name: 'Pi',
@@ -101,6 +114,7 @@ export class Three2LOllPage {
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.R-_U2_R2_U_R2-_U_R2_U2-_R-&alg=R_U2_R2-_U-_R2_U-_R2-_U2-_R&view=playback',
       ],
+      setupAlgo: ['x2 y2'],
     },
   ];
 

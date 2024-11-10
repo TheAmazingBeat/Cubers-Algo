@@ -4,4 +4,5 @@ export interface Algo {
   imgUrl: string;
   imgAlt: string;
   simulationUrls: string[];
+  setupAlgo: string[]
 }

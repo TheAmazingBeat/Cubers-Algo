@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Algo } from 'src/app/interfaces/algos';
+import { AlgoModalComponent } from '../algo-modal/algo-modal.component';
 
 @Component({
   selector: 'app-algo',
@@ -11,7 +13,7 @@ export class AlgoComponent implements OnInit {
   sequences: string[][] = [];
   simulationUrls: string[] = [];
 
-  constructor() {}
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
     if (this.algo) {
@@ -23,6 +25,19 @@ export class AlgoComponent implements OnInit {
       // Set the simulation URLs
       this.simulationUrls = this.algo.simulationUrls;
     }
+  }
 
+  async openModal(algoName: string | undefined, sequence: string[], setupAlgo: string[] | undefined) {
+    const modal = await this.modalController.create({
+      component: AlgoModalComponent,
+      componentProps: {
+        name: algoName,
+        sequence: sequence.join(' '),
+        setupAlgo: setupAlgo?.join(' '),
+      },
+    });
+    modal.present();
+
+    const { data, role } = await modal.onDidDismiss();
   }
 }
