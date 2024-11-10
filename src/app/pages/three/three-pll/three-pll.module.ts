@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ThreePllPageRoutingModule } from './three-pll-routing.module';
 
 import { ThreePllPage } from './three-pll.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ThreePllPageRoutingModule
+    ThreePllPageRoutingModule,
+    SharedModule
   ],
   declarations: [ThreePllPage]
 })

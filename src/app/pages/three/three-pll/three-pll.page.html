@@ -13,4 +13,45 @@
       <ion-title size="large">3x3 PLL</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeLg="6">
+        <app-algo-category
+          [algos]="edgeOnly"
+          categoryTitle="Edge Only"
+        ></app-algo-category>
+      </ion-col>
+      <ion-col size="12" sizeLg="6">
+        <app-algo-category
+          [algos]="cornersOnly"
+          categoryTitle="Corners Only"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12">
+        <app-algo-category
+          [algos]="swapAdjacentCorners"
+          categoryTitle="Swap One Set of Adjacent Corners"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <app-algo-category
+          [algos]="swapCornersDiagonally"
+          categoryTitle="Swap Corners Diagonally"
+        ></app-algo-category>
+      </ion-col>
+      <ion-col>
+        <app-algo-category
+          [algos]="doubleCycles"
+          categoryTitle="G Perms (Double Cycle)"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
