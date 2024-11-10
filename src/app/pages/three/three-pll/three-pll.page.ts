@@ -15,7 +15,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/af79bbee-0c30-453e-7812-c8faddc2a700/128`,
       imgAlt: '3x3 Ua Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=M2-_U_M_U2-_M-_U_M2-&alg=M2-_U_M_U2-_M-_U_M2-&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.M2_U-_M_U2_M-_U-_M2&alg=M2-_U_M_U2-_M-_U_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -25,7 +25,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/2d181933-2717-433e-e7be-2c309e282300/128`,
       imgAlt: '3x3 Ub Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=M2-_U-_M_U2-_M-_U-_M2-&alg=M2-_U-_M_U2-_M-_U-_M2-&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.M2_U_M_U2_M-_U_M2&alg=M2-_U-_M_U2-_M-_U-_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -35,7 +35,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/086c7b48-b39e-4e01-bbe5-d8ee79074900/128`,
       imgAlt: '3x3 H Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=M2-_U_M2-_U2_M2-_U_M2-&alg=M2-_U_M2-_U2_M2-_U_M2-&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.M2-_U_M2-_U2_M2-_U_M2-&alg=M2-_U_M2-_U2_M2-_U_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -45,7 +45,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/8ec67136-3eff-4262-34ef-5726bb14bc00/128`,
       imgAlt: '3x3 Z Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=M2-_U_M2-_U_M-_U2_M2-_U2_M-_U2&alg=M2-_U_M2-_U_M-_U2_M2-_U2_M-_U2&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.M2-_U-_M2-_U-_M-_U2_M2-_U2_M-_U2&alg=M2-_U-_M2-_U-_M-_U2_M2-_U2_M-_U2&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -58,7 +58,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/4e948d1c-837a-4ef3-ac31-373565ed2000/128`,
       imgAlt: '3x3 Aa Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=R2_U2_R_U2_R2_U2_R2_U2_R&alg=R2_U2_R_U2_R2_U2_R2_U2_R&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.x_R2-_D2-_(R_U_R-)_D2-_(R_U-_R)_x-&alg=x_(R-_U_R-)_D2_(R_U-_R-)_D2_R2_x-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -68,7 +68,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/219ecbc4-8f39-4b30-5b56-b79a486f3800/128`,
       imgAlt: '3x3 Ab Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=R2_U2_R_U2_R2_U2_R2_U2_R&alg=R2_U2_R_U2_R2_U2_R2_U2_R&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.x_(R-_U_R-)_D2-_(R_U-_R-)_D2-_R2_x-&alg=x_R2-_D2_(R_U_R-)_D2_(R_U-_R)_x-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
@@ -78,7 +78,7 @@ export class ThreePllPage {
       imgUrl: `${environment.imgUrl}/9cb15fa9-8947-4077-e09f-bfe89579e400/128`,
       imgAlt: '3x3 E Perm Algo',
       simulationUrls: [
-        'https://alg.cubing.net/?setup=R2_U2_R_U2_R2_U2_R2_U2_R&alg=R2_U2_R_U2_R2_U2_R2_U2_R&view=playback',
+        'https://alg.cubing.net/?setup=x2y2.x-_(D_R_U_R-)_(D-_R_U-_R-)_(D_R_U-_R-)_(D-_R_U_R-)_x&alg=x-_(R_U-_R-_D)_(R_U_R-_D-)_(R_U_R-_D)_(R_U-_R-_D-)_x&view=playback',
       ],
       setupAlgo: ['x2 y2'],
     },
