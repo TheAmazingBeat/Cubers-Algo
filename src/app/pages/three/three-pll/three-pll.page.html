@@ -13,4 +13,51 @@
       <ion-title size="large">3x3 PLL</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center w-full">
+      <ion-col size="12" sizeLg="6" sizeXl="8">
+        <app-algo-category
+          categoryTitle="Edge Only"
+          [algos]="edgeOnly"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center w-full">
+      <ion-col size="12" sizeLg="6" sizeXl="8">
+        <app-algo-category
+          categoryTitle="Corners Only"
+          [algos]="cornersOnly"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center w-full">
+      <ion-col size="12" sizeLg="6" sizeXl="8">
+        <app-algo-category
+          categoryTitle="Swap One Set of Adjacent Corners"
+          [algos]="swapAdjacentCorners"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center w-full">
+      <ion-col size="12" sizeLg="6" sizeXl="8">
+        <app-algo-category
+          categoryTitle="Swap Corners Diagonally"
+          [algos]="swapCornersDiagonally"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center w-full">
+      <ion-col size="12" sizeLg="6" sizeXl="8">
+        <app-algo-category
+          categoryTitle="G Perms (Double Cycle)"
+          [algos]="doubleCycles"
+        ></app-algo-category>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
