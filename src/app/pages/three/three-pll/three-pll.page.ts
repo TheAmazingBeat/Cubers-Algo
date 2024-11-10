@@ -109,7 +109,7 @@ export class ThreePllPage {
       name: 'Ja',
       sequences: [
         "(R' U L' U2) (R U' R' U2 R) L U'",
-        " y' (L' U' L F) (L' U' L U) L F' L2' U L U ",
+        " y' (L' U' L F) (L' U' L U) L F' L2' U L U",
       ],
       imgUrl: `${environment.imgUrl}/95bd8cf2-c754-489a-a986-9060b8b1ab00/128`,
       imgAlt: '3x3 Ja Perm Algo',

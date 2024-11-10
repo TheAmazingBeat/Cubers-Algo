@@ -7,32 +7,49 @@
     </ion-text>
   </div>
 
-  <div class="algo-content">
+  <!-- <div class="algo-content">
     <div class="algo-img">
       <img [src]="algo?.imgUrl" [alt]="algo?.imgAlt" />
     </div>
 
     <div class="algo-sequence">
-      <ion-text>
-        @for (sequence of sequences; track $index) {
-        <!-- @if
-        (simulationUrls.length > 0) {
-        <ion-button color="tertiary" [href]="simulationUrls[$index]" target="_blank">
-          @for (line of sequence; track $index) {
-          {{ line }}
-          <br />
-          }
-        </ion-button>
-        } @else { -->
-        <ion-button color="tertiary" (click)="openModal(algo?.name, sequence, algo?.setupAlgo)">
-          @for (line of sequence; track $index) {
-          {{ line }}
-          <br />
-          }
-        </ion-button>
-        <!-- }  -->
+      @for (sequence of sequences; track $index) {
+      <ion-button
+        color="tertiary"
+        (click)="openModal(algo?.name, sequence, algo?.setupAlgo)"
+        class="ion-text-wrap"
+        style="max-width: 200px"
+      >
+        @for (line of sequence; track $index) {
+        {{ line }}
+        <br />
         }
-      </ion-text>
+      </ion-button>
+      }
     </div>
-  </div>
+  </div> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" sizeLg="4">
+        <img [src]="algo?.imgUrl" [alt]="algo?.imgAlt" />
+      </ion-col>
+
+      <ion-col size="12" sizeLg="8">
+        @for (sequence of sequences; track $index) {
+        <ion-button
+          color="tertiary"
+          (click)="openModal(algo?.name, sequence, algo?.setupAlgo)"
+          class="ion-text-wrap"
+          style="max-width: 200px"
+        >
+          @for (line of sequence; track $index) {
+          {{ line }}
+          <br />
+          }
+        </ion-button>
+        }
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>
