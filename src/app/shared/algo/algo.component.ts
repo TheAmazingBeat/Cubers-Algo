@@ -9,6 +9,7 @@ import { Algo } from 'src/app/interfaces/algos';
 export class AlgoComponent implements OnInit {
   @Input() algo: Algo | undefined;
   sequences: string[][] = [];
+  simulationUrls: string[] = [];
 
   constructor() {}
 
@@ -18,6 +19,9 @@ export class AlgoComponent implements OnInit {
       for (const sequence of this.algo.sequences) {
         this.sequences.push(sequence.split('\n'));
       }
+
+      // Set the simulation URLs
+      this.simulationUrls = this.algo.simulationUrls;
     }
 
   }

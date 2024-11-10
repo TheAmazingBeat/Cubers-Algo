@@ -3,4 +3,5 @@ export interface Algo {
   sequences: string[];
   imgUrl: string;
   imgAlt: string;
+  simulationUrls: string[];
 }
