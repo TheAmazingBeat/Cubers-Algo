@@ -1,0 +1,38 @@
+@if (!algo) { return; }
+
+<div class="algo-container">
+  <div class="algo-header">
+    <ion-text>
+      <h2>{{ algo?.name }}</h2>
+    </ion-text>
+  </div>
+
+  <div class="algo-content">
+    <div class="algo-img">
+      <img [src]="algo?.imgUrl" [alt]="algo?.imgAlt" />
+    </div>
+
+    <div class="algo-sequence">
+      <ion-text>
+        @for (sequence of sequences; track $index) {
+        <!-- @if
+        (simulationUrls.length > 0) {
+        <ion-button color="tertiary" [href]="simulationUrls[$index]" target="_blank">
+          @for (line of sequence; track $index) {
+          {{ line }}
+          <br />
+          }
+        </ion-button>
+        } @else { -->
+        <ion-button color="tertiary" (click)="openModal(algo?.name, sequence, algo?.setupAlgo)">
+          @for (line of sequence; track $index) {
+          {{ line }}
+          <br />
+          }
+        </ion-button>
+        <!-- }  -->
+        }
+      </ion-text>
+    </div>
+  </div>
+</div>

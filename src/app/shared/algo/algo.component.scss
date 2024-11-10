@@ -1,0 +1,55 @@
+.algo-container {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--ion-color-secondary);
+  color: var(--ion-color-secondary-contrast);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.algo-header {
+  text-align: center;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  padding: 0.5rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.algo-content {
+  display: flex;
+  padding: 1rem 0.5rem;
+  flex-wrap: wrap;
+}
+
+.algo-img {
+  display: grid;
+  align-content: center;
+  flex: 0 0 max-content;
+}
+
+.algo-sequence {
+  display: grid;
+  align-content: center;
+  padding: 1rem 1rem 0.25rem;
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .algo-img {
+    flex: 1 0 max-content;
+  }
+
+  .algo-img,
+  .algo-sequence {
+    place-content: center;
+  }
+}
+
+ion-button {
+  text-transform: none !important;
+}
+
+.button-inner {
+  flex-flow: column;
+}
