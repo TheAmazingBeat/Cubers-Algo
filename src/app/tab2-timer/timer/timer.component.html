@@ -7,25 +7,17 @@
   <ion-row class="ion-justify-content-center h-full">
     <ion-col size="12" sizeLg="10" id="timerWrapper">
       <div id="timerDisplay">
-        <h1 id="timerText" [class]="isReady">
-          <span>{{ numberToString(minutes) }}</span>
-          :
-          <span>{{ numberToString(seconds) }}</span>
-          :
-          <span>{{ centisecond }}</span>
-          <span>{{ decisecond }}</span>
-        </h1>
+        <time>
+          <h1 id="timerText" [class]="isReady">
+            <span>{{ numberToString(minutes) }}</span>
+            :
+            <span>{{ numberToString(seconds) }}</span>
+            :
+            <span>{{ centisecond }}</span>
+            <span>{{ decisecond }}</span>
+          </h1>
+        </time>
       </div>
     </ion-col>
   </ion-row>
-
-  <!-- <ion-row class="ion-justify-content-center">
-    <ion-col size="12" sizeLg="10">
-      <div id="timerControls">
-        <ion-button (click)="start()">Start</ion-button>
-        <ion-button (click)="stop()">Stop</ion-button>
-        <ion-button (click)="reset($event)">Reset</ion-button>
-      </div>
-    </ion-col>
-  </ion-row> -->
 </ion-grid>
