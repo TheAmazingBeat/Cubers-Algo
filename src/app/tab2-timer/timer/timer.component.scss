@@ -1,0 +1,31 @@
+#timerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#timerDisplay {
+  text-align: center;
+  #timerText {
+    font-size: 3em;
+
+    &.stopped {
+      color: inherit;
+    }
+
+    &.not-ready {
+      color: var(--ion-color-warning);
+    }
+
+    &.ready {
+      color: var(--ion-color-success);
+    }
+  }
+}
+
+#timerControls {
+  display: flex;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ import { Tab2Page } from './tab2.page';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     Tab2PageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page, TimerComponent],
 })
 export class Tab2PageModule {}
