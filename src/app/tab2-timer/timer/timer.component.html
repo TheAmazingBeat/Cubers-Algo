@@ -1,0 +1,23 @@
+<ion-grid
+  class="h-full ion-activatable ripple-parent"
+  (mousedown)="getReady($event)"
+  (mouseup)="stopOrStart($event)"
+>
+  <ion-ripple-effect></ion-ripple-effect>
+  <ion-row class="ion-justify-content-center h-full">
+    <ion-col size="12" sizeLg="10" id="timerWrapper">
+      <div id="timerDisplay">
+        <time>
+          <h1 id="timerText" [class]="isReady">
+            <span>{{ numberToString(minutes) }}</span>
+            :
+            <span>{{ numberToString(seconds) }}</span>
+            :
+            <span>{{ centisecond }}</span>
+            <span>{{ decisecond }}</span>
+          </h1>
+        </time>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
