@@ -1090,10 +1090,17 @@ export class ThreeCubeModel {
     this.yellow.draw(this.ctx);
     this.red.draw(this.ctx);
     this.blue.draw(this.ctx);
+    this.ctx.save();
   }
 
   clear() {
     this.ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
+  }
+
+  scramble(sequence: Move[]) {
+    for (let i = 0; i < sequence.length; i++) {
+      this.slice(sequence[i]);
+    }
   }
 
   slice(move: Move) {

@@ -47,6 +47,7 @@ export class CubeModelComponent implements AfterViewInit {
       this.canvasSize
     );
     this.cube.draw();
+    this.cube.scramble(this.scramble);
   }
 
   initialize() {
@@ -105,7 +106,6 @@ export class CubeModelComponent implements AfterViewInit {
       this.sideSize
     );
 
-    // this.drawCenters();
     this.ctx.save();
   }
 
