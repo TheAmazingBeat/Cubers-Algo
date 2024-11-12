@@ -414,6 +414,97 @@ class Side {
       this.insertPieces(newPieces);
       return [topRight, middleRight, bottomRight];
     }
+
+    if (this.center.color === 'green') {
+      const targetSide = this.findTargetSide(sides, 'white');
+
+      // Top
+      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+      topRight.x = targetSide.TOPRIGHT.x;
+      topRight.y = targetSide.TOPRIGHT.y;
+      this.moved.push(topRight.id);
+      // Middle
+      const middleRight = this.findPiece(
+        this.MIDDLERIGHT.x,
+        this.MIDDLERIGHT.y
+      );
+      middleRight.x = targetSide.MIDDLERIGHT.x;
+      middleRight.y = targetSide.MIDDLERIGHT.y;
+      this.moved.push(middleRight.id);
+      // Bottom
+      const bottomRight = this.findPiece(
+        this.BOTTOMRIGHT.x,
+        this.BOTTOMRIGHT.y
+      );
+      bottomRight.x = targetSide.BOTTOMRIGHT.x;
+      bottomRight.y = targetSide.BOTTOMRIGHT.y;
+      this.moved.push(bottomRight.id);
+      // Remove the moved pieces from the list of pieces
+      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+      this.insertPieces(newPieces);
+
+      return [topRight, middleRight, bottomRight];
+    }
+
+    if (this.center.color === 'white') {
+      const targetSide = this.findTargetSide(sides, 'blue');
+
+      // Top
+      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+      const middleRight = this.findPiece(
+        this.MIDDLERIGHT.x,
+        this.MIDDLERIGHT.y
+      );
+      const bottomRight = this.findPiece(
+        this.BOTTOMRIGHT.x,
+        this.BOTTOMRIGHT.y
+      );
+
+      topRight.x = targetSide.BOTTOMLEFT.x;
+      topRight.y = targetSide.BOTTOMLEFT.y;
+      middleRight.x = targetSide.MIDDLELEFT.x;
+      middleRight.y = targetSide.MIDDLELEFT.y;
+      bottomRight.x = targetSide.TOPLEFT.x;
+      bottomRight.y = targetSide.TOPLEFT.y;
+
+      this.moved.push(topRight.id, middleRight.id, bottomRight.id);
+      // Remove the moved pieces from the list of pieces
+      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+      this.insertPieces(newPieces);
+      return [topRight, middleRight, bottomRight];
+    }
+
+    if (this.center.color === 'yellow') {
+      const targetSide = this.findTargetSide(sides, 'green');
+
+      // Top
+      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+      topRight.x = targetSide.TOPRIGHT.x;
+      topRight.y = targetSide.TOPRIGHT.y;
+      this.moved.push(topRight.id);
+      // Middle
+      const middleRight = this.findPiece(
+        this.MIDDLERIGHT.x,
+        this.MIDDLERIGHT.y
+      );
+      middleRight.x = targetSide.MIDDLERIGHT.x;
+      middleRight.y = targetSide.MIDDLERIGHT.y;
+      this.moved.push(middleRight.id);
+      // Bottom
+      const bottomRight = this.findPiece(
+        this.BOTTOMRIGHT.x,
+        this.BOTTOMRIGHT.y
+      );
+      bottomRight.x = targetSide.BOTTOMRIGHT.x;
+      bottomRight.y = targetSide.BOTTOMRIGHT.y;
+      this.moved.push(bottomRight.id);
+      // Remove the moved pieces from the list of pieces
+      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+      this.insertPieces(newPieces);
+
+      return [topRight, middleRight, bottomRight];
+    }
+
     return [];
   }
   rightprimeSlice(newPieces?: Piece[], sides?: Side[]) {
@@ -440,6 +531,31 @@ class Side {
       const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
       bottomLeft.x = targetSide.TOPLEFT.x;
       bottomLeft.y = targetSide.TOPLEFT.y;
+      this.moved.push(bottomLeft.id);
+      // Remove the moved pieces from the list of pieces
+      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+      this.insertPieces(newPieces);
+
+      return [topLeft, middleLeft, bottomLeft];
+    }
+
+    if (this.center.color === 'blue') {
+      const targetSide = this.findTargetSide(sides, 'yellow');
+
+      // Top
+      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
+      topLeft.x = targetSide.BOTTOMRIGHT.x;
+      topLeft.y = targetSide.BOTTOMRIGHT.y;
+      this.moved.push(topLeft.id);
+      // Middle
+      const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
+      middleLeft.x = targetSide.MIDDLERIGHT.x;
+      middleLeft.y = targetSide.MIDDLERIGHT.y;
+      this.moved.push(middleLeft.id);
+      // Bottom
+      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
+      bottomLeft.x = targetSide.TOPRIGHT.x;
+      bottomLeft.y = targetSide.TOPRIGHT.y;
       this.moved.push(bottomLeft.id);
       // Remove the moved pieces from the list of pieces
       this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
@@ -628,12 +744,13 @@ export class ThreeCubeModel {
 
   rightSlice() {
     let returned: Piece[] = [];
+    returned = this.red.frontSlice(returned);
     returned = this.green.rightSlice(returned, this.sides);
     returned = this.white.rightSlice(returned, this.sides);
-    // this.orange.nothing()
-    returned = this.red.frontSlice(returned);
     returned = this.blue.leftSlice(returned, this.sides);
     returned = this.yellow.rightSlice(returned, this.sides);
+    // this.orange.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
   rightprimeSlice() {
