@@ -906,22 +906,36 @@ export class ThreeCubeModel {
     this.sideSize = sideSize;
     this.canvasSize = canvasSize;
 
-    this.green = new Side('green', sideSize, sideSize, pieceSize, sideSize, 0);
-    this.white = new Side('white', sideSize, 0, pieceSize, sideSize, 10);
-    this.orange = new Side('orange', 0, sideSize, pieceSize, sideSize, 20);
+    this.green = new Side(
+      'green',
+      sideSize + 5,
+      sideSize + 5,
+      pieceSize,
+      sideSize,
+      0
+    );
+    this.white = new Side('white', sideSize + 5, 0, pieceSize, sideSize, 10);
+    this.orange = new Side('orange', 0, sideSize + 5, pieceSize, sideSize, 20);
     this.yellow = new Side(
       'yellow',
-      sideSize,
-      sideSize * 2,
+      sideSize + 5,
+      sideSize * 2 + 5 * 2,
       pieceSize,
       sideSize,
       30
     );
-    this.red = new Side('red', sideSize * 2, sideSize, pieceSize, sideSize, 40);
+    this.red = new Side(
+      'red',
+      sideSize * 2 + 5 * 2,
+      sideSize + 5,
+      pieceSize,
+      sideSize,
+      40
+    );
     this.blue = new Side(
       'blue',
-      sideSize * 3,
-      sideSize,
+      sideSize * 3 + 5 * 3,
+      sideSize + 5,
       pieceSize,
       sideSize,
       50
@@ -1098,6 +1112,7 @@ export class ThreeCubeModel {
   }
 
   scramble(sequence: Move[]) {
+    console.log(sequence);
     for (let i = 0; i < sequence.length; i++) {
       this.slice(sequence[i]);
     }
