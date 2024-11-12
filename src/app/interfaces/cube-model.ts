@@ -1112,7 +1112,6 @@ export class ThreeCubeModel {
   }
 
   scramble(sequence: Move[]) {
-    console.log(sequence);
     for (let i = 0; i < sequence.length; i++) {
       this.slice(sequence[i]);
     }

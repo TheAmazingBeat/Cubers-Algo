@@ -12,13 +12,14 @@ export class Tab2Page implements AfterViewInit {
   @ViewChild('scrambleText') scrambleText!: ScrambleComponent;
   @ViewChild('scrambleDisplay') cubeModel!: CubeModelComponent;
 
-  scrambleSequence: Move[] = [];
+  // scrambleSequence: Move[] = [];
 
   constructor() {}
 
   ngAfterViewInit(): void {
-    this.scrambleSequence = this.scrambleText.stateSequence;
-    this.cubeModel.scramble = this.scrambleSequence;
-    this.cubeModel.initialize(this.scrambleSequence);
+    console.log('Initializing tab2');
+    // this.scrambleSequence = this.scrambleText.stateSequence;
+    // this.cubeModel.scramble = this.scrambleSequence;
+    // this.cubeModel.initialize(this.scrambleSequence);
   }
 }

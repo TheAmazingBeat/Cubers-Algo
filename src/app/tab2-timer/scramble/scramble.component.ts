@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Move } from 'src/app/interfaces/notations';
+// @ts-ignore
+import * as Cube from 'cubejs';
 
 const MOVESET: Move[] = [
   'R',
@@ -33,15 +35,26 @@ export class ScrambleComponent implements OnInit {
   stateMoves: number = 4;
   lastMove: Move | null = null;
   nextMoveCounter: number = 0;
+  scramble: Move[] = [];
+
+  cube: Cube;
 
   constructor() {
     this.availableMoves = MOVESET.slice();
-    // console.log(this.availableMoves);
+    this.cube = new Cube();
   }
 
   ngOnInit() {
-    this.stateMoves = Math.floor(Math.random() * 20) + 4;
+    Cube.initSolver();
+
+    this.stateMoves = Math.floor(Math.random() * 20) + 10;
     this.generateState(this.stateMoves);
+    const stateString = this.stateSequence.join(' ');
+
+    // use cubejs to generate scramble
+    this.cube.move(stateString);
+    const solution = this.cube.solve();
+    this.scramble = Cube.inverse(solution).split(' ');
   }
 
   generateState(numOfSequence: number) {
@@ -52,11 +65,9 @@ export class ScrambleComponent implements OnInit {
             move.charAt(0) ===
             this.stateSequence[this.nextMoveCounter - 2].charAt(0)
         );
-        // console.log('Last moves', moves);
         moves.forEach((move) => {
           this.availableMoves.push(move);
         });
-        // console.log('Added last moves', this.availableMoves);
       }
 
       // Select a random move and remove from list of available moves to remove redundant moves
@@ -68,9 +79,7 @@ export class ScrambleComponent implements OnInit {
       this.availableMoves = this.availableMoves.filter(
         (move) => move.charAt(0) !== randomMove.charAt(0)
       );
-      // console.log('Removed all of ', randomMove.charAt(0));
       this.nextMoveCounter++;
-      // console.log(this.nextMoveCounter, this.availableMoves);
     }
   }
 }
