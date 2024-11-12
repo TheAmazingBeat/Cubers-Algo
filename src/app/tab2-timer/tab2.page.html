@@ -12,11 +12,27 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid class="h-full">
-    <ion-row class="ion-justify-content-center h-full">
+  <ion-grid class="h-full timer-container">
+    <!-- Scramble -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeLg="10" class="text-center">
+        <app-scramble></app-scramble>
+      </ion-col>
+    </ion-row>
+
+    <!-- Timer -->
+    <ion-row class="ion-justify-content-center">
       <ion-col size="12" sizeLg="10" class="h-full">
         <app-timer></app-timer>
       </ion-col>
     </ion-row>
+
+    <!-- <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeLg="10" class="text-center">
+        
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row> </ion-row>
   </ion-grid>
 </ion-content>

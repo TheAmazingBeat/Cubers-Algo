@@ -1,0 +1,7 @@
+<h1>
+  @for (move of stateSequence; track $index) {
+  <span>{{ move }} </span>
+  }
+</h1>
+
+<app-cube-model [scramble]="stateSequence"></app-cube-model>
