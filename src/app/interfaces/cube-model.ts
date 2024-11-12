@@ -13,10 +13,10 @@ type Color = 'green' | 'white' | 'orange' | 'red' | 'blue' | 'yellow';
  *
  * B:                       B':
  * green.nothing            green.nothing
+ * blue.frontSlice          blue.frontprimeSlice
  * white.upSlice            white.upprimeSlice
  * orange.leftSlice         orange.leftprimeSlice
  * red.rightSlice           red.rightprimeSlice
- * blue.backSlice           blue.backprimeSlice
  * yellow.downprimeSlice    yellow.downSlice
  *
  * R:                       R':
@@ -78,7 +78,7 @@ class Piece {
     this.currentCenter = currentCenter;
   }
 
-  draw(ctx: CanvasRenderingContext2D, id?: number) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.size, this.size);
     ctx.lineWidth = 2;
@@ -87,10 +87,10 @@ class Piece {
     if (!this.id) return;
     ctx.font = '20px Arial';
     ctx.fillStyle = 'black';
-    if (this.id < 10)
-      ctx.fillText(this.id.toString(), this.x + this.size / 3, this.y + 22);
-    else
-      ctx.fillText(this.id.toString(), this.x + this.size / 3 - 5, this.y + 22);
+    // if (this.id < 10)
+    //   ctx.fillText(this.id.toString(), this.x + this.size / 3, this.y + 22);
+    // else
+    //   ctx.fillText(this.id.toString(), this.x + this.size / 3 - 5, this.y + 22);
   }
 }
 
@@ -121,14 +121,29 @@ class CornerPiece extends Piece {
 }
 
 class Center extends Piece {
+  // leftCenter: Center | null = null;
+  // rightCenter: Center | null = null;
+  // upCenter: Center | null = null;
+  // downCenter: Center | null = null;
+
   constructor(
     id: number,
     color: Color,
     startX: number,
     startY: number,
-    size: number
+    size: number,
+    leftCenter?: Center,
+    rightCenter?: Center,
+    upCenter?: Center,
+    downCenter?: Center
   ) {
     super(id, color, startX, startY, size);
+    // if (leftCenter && rightCenter && upCenter && downCenter) {
+    //   this.leftCenter = leftCenter;
+    //   this.rightCenter = rightCenter;
+    //   this.upCenter = upCenter;
+    //   this.downCenter = downCenter;
+    // }
   }
 }
 
@@ -150,6 +165,7 @@ class Center extends Piece {
  * 6 7 8
  */
 class Side {
+  //#region Properties
   pieces: Piece[];
   center: Center;
   start: { x: number; y: number };
@@ -166,8 +182,14 @@ class Side {
   BOTTOMCENTER: { x: number; y: number };
   BOTTOMRIGHT: { x: number; y: number };
 
+  leftSide: Side | null = null;
+  rightSide: Side | null = null;
+  upSide: Side | null = null;
+  downSide: Side | null = null;
+
   moved: number[];
   idStart: number;
+  //#endregion
 
   constructor(
     color: Color,
@@ -175,7 +197,11 @@ class Side {
     startY: number,
     pieceSize: number,
     sideSize: number,
-    idStart: number
+    idStart: number,
+    leftSide?: Side,
+    rightSide?: Side,
+    upSide?: Side,
+    downSide?: Side
   ) {
     this.start = { x: startX, y: startY };
     this.pieceSize = pieceSize;
@@ -190,6 +216,13 @@ class Side {
     this.BOTTOMLEFT = { x: startX, y: startY + pieceSize * 2 };
     this.BOTTOMCENTER = { x: startX + pieceSize, y: startY + pieceSize * 2 };
     this.BOTTOMRIGHT = { x: startX + pieceSize * 2, y: startY + pieceSize * 2 };
+
+    if (leftSide && rightSide && upSide && downSide) {
+      this.leftSide = leftSide;
+      this.rightSide = rightSide;
+      this.upSide = upSide;
+      this.downSide = downSide;
+    }
 
     this.moved = [];
     this.idStart = idStart;
@@ -270,6 +303,14 @@ class Side {
     ];
   }
 
+  udpateSides(leftSide: Side, rightSide: Side, upSide: Side, downSide: Side) {
+    this.leftSide = leftSide;
+    this.rightSide = rightSide;
+    this.upSide = upSide;
+    this.downSide = downSide;
+  }
+
+  //#region Utitily Methods
   // Find a piece in a certain location that has not been moved
   findPiece(x: number, y: number) {
     const piece: Piece | undefined = this.pieces.find(
@@ -291,6 +332,7 @@ class Side {
     if (!targetSide) throw new Error('Target side not found');
     return targetSide;
   }
+  //#endregion
 
   frontSlice(newPieces: Piece[]) {
     this.moved = [];
@@ -384,365 +426,457 @@ class Side {
 
   rightSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
-    if (this.center.color === 'orange') {
-      const targetSide = this.findTargetSide(sides, 'white');
+    if (!this.upSide || !this.upSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.upSide?.center.color);
+    // Pieces to move
+    const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+    const middleRight = this.findPiece(this.MIDDLERIGHT.x, this.MIDDLERIGHT.y);
+    const bottomRight = this.findPiece(this.BOTTOMRIGHT.x, this.BOTTOMRIGHT.y);
 
-      // Top
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-      topRight.x = targetSide.BOTTOMRIGHT.x;
-      topRight.y = targetSide.BOTTOMRIGHT.y;
-      this.moved.push(topRight.id);
-      // Middle
-      const middleRight = this.findPiece(
-        this.MIDDLERIGHT.x,
-        this.MIDDLERIGHT.y
-      );
-      middleRight.x = targetSide.BOTTOMCENTER.x;
-      middleRight.y = targetSide.BOTTOMCENTER.y;
-      this.moved.push(middleRight.id);
-      // Bottom
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomRight.x = targetSide.BOTTOMLEFT.x;
-      bottomRight.y = targetSide.BOTTOMLEFT.y;
-      this.moved.push(bottomRight.id);
-
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [topRight, middleRight, bottomRight];
-    }
-
+    // Move pieces
     if (this.center.color === 'green') {
-      const targetSide = this.findTargetSide(sides, 'white');
-
-      // Top
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-      topRight.x = targetSide.TOPRIGHT.x;
-      topRight.y = targetSide.TOPRIGHT.y;
+      Object.assign(topRight, targetSide.TOPRIGHT);
       this.moved.push(topRight.id);
-      // Middle
-      const middleRight = this.findPiece(
-        this.MIDDLERIGHT.x,
-        this.MIDDLERIGHT.y
-      );
-      middleRight.x = targetSide.MIDDLERIGHT.x;
-      middleRight.y = targetSide.MIDDLERIGHT.y;
+      Object.assign(middleRight, targetSide.MIDDLERIGHT);
       this.moved.push(middleRight.id);
-      // Bottom
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomRight.x = targetSide.BOTTOMRIGHT.x;
-      bottomRight.y = targetSide.BOTTOMRIGHT.y;
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
       this.moved.push(bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topRight, middleRight, bottomRight];
     }
-
     if (this.center.color === 'white') {
-      const targetSide = this.findTargetSide(sides, 'blue');
-
-      // Top
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-      const middleRight = this.findPiece(
-        this.MIDDLERIGHT.x,
-        this.MIDDLERIGHT.y
-      );
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-
-      topRight.x = targetSide.BOTTOMLEFT.x;
-      topRight.y = targetSide.BOTTOMLEFT.y;
-      middleRight.x = targetSide.MIDDLELEFT.x;
-      middleRight.y = targetSide.MIDDLELEFT.y;
-      bottomRight.x = targetSide.TOPLEFT.x;
-      bottomRight.y = targetSide.TOPLEFT.y;
-
-      this.moved.push(topRight.id, middleRight.id, bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [topRight, middleRight, bottomRight];
-    }
-
-    if (this.center.color === 'yellow') {
-      const targetSide = this.findTargetSide(sides, 'green');
-
-      // Top
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-      topRight.x = targetSide.TOPRIGHT.x;
-      topRight.y = targetSide.TOPRIGHT.y;
+      Object.assign(topRight, targetSide.BOTTOMLEFT);
       this.moved.push(topRight.id);
-      // Middle
-      const middleRight = this.findPiece(
-        this.MIDDLERIGHT.x,
-        this.MIDDLERIGHT.y
-      );
-      middleRight.x = targetSide.MIDDLERIGHT.x;
-      middleRight.y = targetSide.MIDDLERIGHT.y;
+      Object.assign(middleRight, targetSide.MIDDLELEFT);
       this.moved.push(middleRight.id);
-      // Bottom
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomRight.x = targetSide.BOTTOMRIGHT.x;
-      bottomRight.y = targetSide.BOTTOMRIGHT.y;
+      Object.assign(bottomRight, targetSide.TOPLEFT);
       this.moved.push(bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topRight, middleRight, bottomRight];
+    }
+    if (this.center.color === 'orange') {
+      Object.assign(topRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.BOTTOMCENTER);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(topRight, targetSide.TOPRIGHT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.MIDDLERIGHT);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'red') {
+      Object.assign(topRight, targetSide.TOPLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.TOPCENTER);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.TOPRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'blue') {
+      Object.assign(topRight, targetSide.BOTTOMLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.MIDDLELEFT);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.TOPLEFT);
+      this.moved.push(bottomRight.id);
     }
 
-    return [];
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+    return [topRight, middleRight, bottomRight];
   }
   rightprimeSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
-    if (this.center.color === 'orange') {
-      const targetSide = this.findTargetSide(sides, 'yellow');
+    if (!this.downSide || !this.downSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.downSide.center.color);
+    // Pieces to move
+    const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+    const middleRight = this.findPiece(this.MIDDLERIGHT.x, this.MIDDLERIGHT.y);
+    const bottomRight = this.findPiece(this.BOTTOMRIGHT.x, this.BOTTOMRIGHT.y);
 
-      // Top
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-      topRight.x = targetSide.TOPLEFT.x;
-      topRight.y = targetSide.TOPLEFT.y;
+    // Move pieces
+    if (this.center.color === 'green') {
+      Object.assign(topRight, targetSide.TOPRIGHT);
       this.moved.push(topRight.id);
-      // Middle
-      const middleRight = this.findPiece(
-        this.MIDDLERIGHT.x,
-        this.MIDDLERIGHT.y
-      );
-      middleRight.x = targetSide.TOPCENTER.x;
-      middleRight.y = targetSide.TOPCENTER.y;
+      Object.assign(middleRight, targetSide.MIDDLERIGHT);
       this.moved.push(middleRight.id);
-      // Bottom
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomRight.x = targetSide.TOPRIGHT.x;
-      bottomRight.y = targetSide.TOPRIGHT.y;
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
       this.moved.push(bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topRight, middleRight, bottomRight];
     }
-    return [];
+    if (this.center.color === 'white') {
+      Object.assign(topRight, targetSide.TOPRIGHT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.MIDDLERIGHT);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'orange') {
+      Object.assign(topRight, targetSide.TOPLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.TOPCENTER);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.TOPRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(topRight, targetSide.BOTTOMLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.MIDDLELEFT);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.TOPLEFT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'red') {
+      Object.assign(topRight, targetSide.BOTTOMLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.BOTTOMCENTER);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'blue') {
+      Object.assign(topRight, targetSide.BOTTOMLEFT);
+      this.moved.push(topRight.id);
+      Object.assign(middleRight, targetSide.MIDDLELEFT);
+      this.moved.push(middleRight.id);
+      Object.assign(bottomRight, targetSide.TOPLEFT);
+      this.moved.push(bottomRight.id);
+    }
+
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [topRight, middleRight, bottomRight];
   }
 
   leftSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
+    if (!this.downSide || !this.downSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.downSide.center.color);
+    // Pieces to move
+    const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
+    const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
+    const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
+
+    // Move pieces
+    if (this.center.color === 'green') {
+      Object.assign(topLeft, targetSide.TOPLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLELEFT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'white') {
+      Object.assign(topLeft, targetSide.TOPLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLELEFT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'orange') {
+      Object.assign(topLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.BOTTOMCENTER);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(topLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLERIGHT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.TOPRIGHT);
+      this.moved.push(bottomLeft.id);
+    }
     if (this.center.color === 'red') {
-      const targetSide = this.findTargetSide(sides, 'yellow');
-
-      // Top
-      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
-      topLeft.x = targetSide.TOPRIGHT.x;
-      topLeft.y = targetSide.TOPRIGHT.y;
+      Object.assign(topLeft, targetSide.TOPLEFT);
       this.moved.push(topLeft.id);
-      // Middle
-      const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
-      middleLeft.x = targetSide.TOPCENTER.x;
-      middleLeft.y = targetSide.TOPCENTER.y;
+      Object.assign(middleLeft, targetSide.TOPCENTER);
       this.moved.push(middleLeft.id);
-      // Bottom
-      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
-      bottomLeft.x = targetSide.TOPLEFT.x;
-      bottomLeft.y = targetSide.TOPLEFT.y;
+      Object.assign(bottomLeft, targetSide.TOPRIGHT);
       this.moved.push(bottomLeft.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topLeft, middleLeft, bottomLeft];
     }
-
     if (this.center.color === 'blue') {
-      const targetSide = this.findTargetSide(sides, 'yellow');
-
-      // Top
-      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
-      topLeft.x = targetSide.BOTTOMRIGHT.x;
-      topLeft.y = targetSide.BOTTOMRIGHT.y;
+      Object.assign(topLeft, targetSide.BOTTOMRIGHT);
       this.moved.push(topLeft.id);
-      // Middle
-      const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
-      middleLeft.x = targetSide.MIDDLERIGHT.x;
-      middleLeft.y = targetSide.MIDDLERIGHT.y;
+      Object.assign(middleLeft, targetSide.MIDDLERIGHT);
       this.moved.push(middleLeft.id);
-      // Bottom
-      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
-      bottomLeft.x = targetSide.TOPRIGHT.x;
-      bottomLeft.y = targetSide.TOPRIGHT.y;
+      Object.assign(bottomLeft, targetSide.TOPRIGHT);
       this.moved.push(bottomLeft.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topLeft, middleLeft, bottomLeft];
     }
-    return [];
+
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [topLeft, middleLeft, bottomLeft];
   }
   leftprimeSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
+    if (!this.upSide || !this.upSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.upSide.center.color);
+    // Pieces to move
+    const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
+    const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
+    const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
 
-    if (this.center.color === 'red') {
-      const targetSide = this.findTargetSide(sides, 'white');
-
-      // Top
-      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
-      topLeft.x = targetSide.BOTTOMLEFT.x;
-      topLeft.y = targetSide.BOTTOMLEFT.y;
+    // Move pieces
+    if (this.center.color === 'green') {
+      Object.assign(topLeft, targetSide.TOPLEFT);
       this.moved.push(topLeft.id);
-      // Middle
-      const middleLeft = this.findPiece(this.MIDDLELEFT.x, this.MIDDLELEFT.y);
-      middleLeft.x = targetSide.BOTTOMCENTER.x;
-      middleLeft.y = targetSide.BOTTOMCENTER.y;
+      Object.assign(middleLeft, targetSide.MIDDLELEFT);
       this.moved.push(middleLeft.id);
-      // Bottom
-      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
-      bottomLeft.x = targetSide.BOTTOMRIGHT.x;
-      bottomLeft.y = targetSide.BOTTOMRIGHT.y;
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
       this.moved.push(bottomLeft.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-
-      return [topLeft, middleLeft, bottomLeft];
+    }
+    if (this.center.color === 'white') {
+      Object.assign(topLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLERIGHT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.TOPRIGHT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'orange') {
+      Object.assign(topLeft, targetSide.TOPRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.TOPCENTER);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.TOPLEFT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(topLeft, targetSide.TOPLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLELEFT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'red') {
+      Object.assign(topLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.BOTTOMCENTER);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomLeft.id);
+    }
+    if (this.center.color === 'blue') {
+      Object.assign(topLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(middleLeft, targetSide.MIDDLERIGHT);
+      this.moved.push(middleLeft.id);
+      Object.assign(bottomLeft, targetSide.TOPRIGHT);
+      this.moved.push(bottomLeft.id);
     }
 
-    return [];
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [topLeft, middleLeft, bottomLeft];
   }
 
   upSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
-    if (this.center.color === 'yellow') {
-      const targetSide = this.findTargetSide(sides, 'orange');
+    if (!this.leftSide || !this.leftSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.leftSide.center.color);
+    // Pieces to move
+    const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
+    const topCenter = this.findPiece(this.TOPCENTER.x, this.TOPCENTER.y);
+    const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
 
-      // Top
-      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
-      const topMiddle = this.findPiece(this.TOPCENTER.x, this.TOPCENTER.y);
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-
-      topLeft.x = targetSide.TOPRIGHT.x;
-      topLeft.y = targetSide.TOPRIGHT.y;
-      topMiddle.x = targetSide.MIDDLERIGHT.x;
-      topMiddle.y = targetSide.MIDDLERIGHT.y;
-      topRight.x = targetSide.BOTTOMRIGHT.x;
-      topRight.y = targetSide.BOTTOMRIGHT.y;
-
-      this.moved.push(topLeft.id, topMiddle.id, topRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [topLeft, topMiddle, topRight];
+    if (
+      this.center.color === 'green' ||
+      this.center.color === 'blue' ||
+      this.center.color === 'red' ||
+      this.center.color === 'orange'
+    ) {
+      Object.assign(topLeft, targetSide.TOPLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.TOPCENTER);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.TOPRIGHT);
+      this.moved.push(topRight.id);
     }
-    return [];
+    if (this.center.color === 'white') {
+      Object.assign(topLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.MIDDLELEFT);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.TOPLEFT);
+      this.moved.push(topRight.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(topLeft, targetSide.TOPRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.MIDDLERIGHT);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(topRight.id);
+    }
+
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [topLeft, topCenter, topRight];
   }
   upprimeSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
 
+    if (!this.rightSide || !this.rightSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.rightSide.center.color);
+    // Pieces to move
+    const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
+    const topCenter = this.findPiece(this.TOPCENTER.x, this.TOPCENTER.y);
+    const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
+
+    if (
+      this.center.color === 'green' ||
+      this.center.color === 'blue' ||
+      this.center.color === 'red' ||
+      this.center.color === 'orange'
+    ) {
+      Object.assign(topLeft, targetSide.TOPLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.TOPCENTER);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.TOPRIGHT);
+      this.moved.push(topRight.id);
+    }
+    if (this.center.color === 'white') {
+      Object.assign(topLeft, targetSide.TOPRIGHT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.MIDDLERIGHT);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(topRight.id);
+    }
     if (this.center.color === 'yellow') {
-      const targetSide = this.findTargetSide(sides, 'red');
-
-      // Top
-      const topLeft = this.findPiece(this.TOPLEFT.x, this.TOPLEFT.y);
-      const topMiddle = this.findPiece(this.TOPCENTER.x, this.TOPCENTER.y);
-      const topRight = this.findPiece(this.TOPRIGHT.x, this.TOPRIGHT.y);
-
-      topLeft.x = targetSide.BOTTOMLEFT.x;
-      topLeft.y = targetSide.BOTTOMLEFT.y;
-      topMiddle.x = targetSide.MIDDLELEFT.x;
-      topMiddle.y = targetSide.MIDDLELEFT.y;
-      topRight.x = targetSide.TOPLEFT.x;
-      topRight.y = targetSide.TOPLEFT.y;
-
-      this.moved.push(topLeft.id, topMiddle.id, topRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [topLeft, topMiddle, topRight];
+      Object.assign(topLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(topLeft.id);
+      Object.assign(topCenter, targetSide.MIDDLELEFT);
+      this.moved.push(topCenter.id);
+      Object.assign(topRight, targetSide.TOPLEFT);
+      this.moved.push(topRight.id);
     }
 
-    return [];
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [topLeft, topCenter, topRight];
   }
 
   downSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
-    if (this.center.color === 'white') {
-      const targetSide = this.findTargetSide(sides, 'red');
+    if (!this.rightSide || !this.rightSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.rightSide.center.color);
+    // Pieces to move
+    const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
+    const bottomCenter = this.findPiece(
+      this.BOTTOMCENTER.x,
+      this.BOTTOMCENTER.y
+    );
+    const bottomRight = this.findPiece(this.BOTTOMRIGHT.x, this.BOTTOMRIGHT.y);
 
-      // Bottom
-      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
-      const bottomCenter = this.findPiece(
-        this.BOTTOMCENTER.x,
-        this.BOTTOMCENTER.y
-      );
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomLeft.x = targetSide.TOPLEFT.x;
-      bottomLeft.y = targetSide.TOPLEFT.y;
-      bottomCenter.x = targetSide.MIDDLELEFT.x;
-      bottomCenter.y = targetSide.MIDDLELEFT.y;
-      bottomRight.x = targetSide.BOTTOMLEFT.x;
-      bottomRight.y = targetSide.BOTTOMLEFT.y;
-
-      this.moved.push(bottomLeft.id, bottomCenter.id, bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [bottomLeft, bottomCenter, bottomRight];
+    if (
+      this.center.color === 'green' ||
+      this.center.color === 'blue' ||
+      this.center.color === 'red' ||
+      this.center.color === 'orange'
+    ) {
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.BOTTOMCENTER);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomRight.id);
     }
-    return [];
+    if (this.center.color === 'white') {
+      Object.assign(bottomLeft, targetSide.TOPLEFT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.MIDDLELEFT);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(bottomLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.MIDDLERIGHT);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.TOPRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [bottomLeft, bottomCenter, bottomRight];
   }
   downprimeSlice(newPieces: Piece[], sides: Side[]) {
     this.moved = [];
-    if (this.center.color === 'white') {
-      const targetSide = this.findTargetSide(sides, 'orange');
+    if (!this.leftSide || !this.leftSide.center) return [];
+    // Side to move to
+    const targetSide = this.findTargetSide(sides, this.leftSide.center.color);
+    // Pieces to move
+    const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
+    const bottomCenter = this.findPiece(
+      this.BOTTOMCENTER.x,
+      this.BOTTOMCENTER.y
+    );
+    const bottomRight = this.findPiece(this.BOTTOMRIGHT.x, this.BOTTOMRIGHT.y);
 
-      // Bottom
-      const bottomLeft = this.findPiece(this.BOTTOMLEFT.x, this.BOTTOMLEFT.y);
-      const bottomCenter = this.findPiece(
-        this.BOTTOMCENTER.x,
-        this.BOTTOMCENTER.y
-      );
-      const bottomRight = this.findPiece(
-        this.BOTTOMRIGHT.x,
-        this.BOTTOMRIGHT.y
-      );
-      bottomLeft.x = targetSide.BOTTOMRIGHT.x;
-      bottomLeft.y = targetSide.BOTTOMRIGHT.y;
-      bottomCenter.x = targetSide.MIDDLERIGHT.x;
-      bottomCenter.y = targetSide.MIDDLERIGHT.y;
-      bottomRight.x = targetSide.TOPRIGHT.x;
-      bottomRight.y = targetSide.TOPRIGHT.y;
-
-      this.moved.push(bottomLeft.id, bottomCenter.id, bottomRight.id);
-      // Remove the moved pieces from the list of pieces
-      this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
-      this.insertPieces(newPieces);
-      return [bottomLeft, bottomCenter, bottomRight];
+    if (
+      this.center.color === 'green' ||
+      this.center.color === 'blue' ||
+      this.center.color === 'red' ||
+      this.center.color === 'orange'
+    ) {
+      Object.assign(bottomLeft, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.BOTTOMCENTER);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomRight.id);
     }
-    return [];
+    if (this.center.color === 'white') {
+      Object.assign(bottomLeft, targetSide.BOTTOMRIGHT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.MIDDLERIGHT);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.TOPRIGHT);
+      this.moved.push(bottomRight.id);
+    }
+    if (this.center.color === 'yellow') {
+      Object.assign(bottomLeft, targetSide.TOPLEFT);
+      this.moved.push(bottomLeft.id);
+      Object.assign(bottomCenter, targetSide.MIDDLELEFT);
+      this.moved.push(bottomCenter.id);
+      Object.assign(bottomRight, targetSide.BOTTOMLEFT);
+      this.moved.push(bottomRight.id);
+    }
+
+    this.pieces = this.pieces.filter((p) => !this.moved.includes(p.id));
+    this.insertPieces(newPieces);
+
+    return [bottomLeft, bottomCenter, bottomRight];
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     for (let i = 0; i < this.pieces.length; i++) {
-      this.pieces[i].draw(ctx, i + 1);
+      this.pieces[i].draw(ctx);
     }
   }
 }
@@ -801,11 +935,18 @@ export class ThreeCubeModel {
       this.red,
       this.blue,
     ];
+
+    this.green.udpateSides(this.orange, this.red, this.white, this.yellow);
+    this.white.udpateSides(this.orange, this.red, this.blue, this.green);
+    this.orange.udpateSides(this.blue, this.green, this.white, this.yellow);
+    this.yellow.udpateSides(this.orange, this.red, this.green, this.blue);
+    this.red.udpateSides(this.green, this.blue, this.white, this.yellow);
+    this.blue.udpateSides(this.red, this.orange, this.white, this.yellow);
   }
 
   frontSlice() {
     let returned: Piece[] = [];
-    this.green.frontSlice(returned);
+    returned = this.green.frontSlice(returned);
     returned = this.white.downSlice(returned, this.sides);
     returned = this.red.leftSlice(returned, this.sides);
     returned = this.yellow.upSlice(returned, this.sides);
@@ -816,7 +957,7 @@ export class ThreeCubeModel {
   }
   frontprimeSlice() {
     let returned: Piece[] = [];
-    this.green.frontprimeSlice(returned);
+    returned = this.green.frontprimeSlice(returned);
     returned = this.white.downprimeSlice(returned, this.sides);
     returned = this.orange.rightprimeSlice(returned, this.sides);
     returned = this.yellow.upprimeSlice(returned, this.sides);
@@ -828,22 +969,25 @@ export class ThreeCubeModel {
 
   backSlice() {
     let returned: Piece[] = [];
-    returned = this.blue.backSlice(returned, this.sides);
+    returned = this.blue.frontSlice(returned);
     returned = this.white.upSlice(returned, this.sides);
     returned = this.orange.leftSlice(returned, this.sides);
-    returned = this.yellow.downprimeSlice(returned, this.sides);
+    returned = this.yellow.downSlice(returned, this.sides);
     returned = this.red.rightSlice(returned, this.sides);
     // this.green.nothing()
+    this.white.insertPieces(returned);
+
     this.draw();
   }
   backprimeSlice() {
     let returned: Piece[] = [];
-    returned = this.blue.backprimeSlice(returned, this.sides);
+    returned = this.blue.frontprimeSlice(returned);
     returned = this.white.upprimeSlice(returned, this.sides);
-    returned = this.orange.leftprimeSlice(returned, this.sides);
-    returned = this.yellow.downSlice(returned, this.sides);
     returned = this.red.rightprimeSlice(returned, this.sides);
+    returned = this.yellow.downprimeSlice(returned, this.sides);
+    returned = this.orange.leftprimeSlice(returned, this.sides);
     // this.green.nothing()
+    this.white.insertPieces(returned);
     this.draw();
   }
 
@@ -862,72 +1006,80 @@ export class ThreeCubeModel {
     let returned: Piece[] = [];
     returned = this.red.frontprimeSlice(returned);
     returned = this.green.rightprimeSlice(returned, this.sides);
-    returned = this.white.rightprimeSlice(returned, this.sides);
-    returned = this.blue.leftprimeSlice(returned, this.sides);
     returned = this.yellow.rightprimeSlice(returned, this.sides);
+    returned = this.blue.leftprimeSlice(returned, this.sides);
+    returned = this.white.rightprimeSlice(returned, this.sides);
     // this.orange.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
 
   leftSlice() {
     let returned: Piece[] = [];
-    returned = this.green.leftSlice(returned, this.sides);
-    returned = this.white.leftSlice(returned, this.sides);
     returned = this.orange.frontSlice(returned);
-    // this.red.nothing()
-    returned = this.blue.rightSlice(returned, this.sides);
+    returned = this.green.leftSlice(returned, this.sides);
     returned = this.yellow.leftSlice(returned, this.sides);
+    returned = this.blue.rightSlice(returned, this.sides);
+    returned = this.white.leftSlice(returned, this.sides);
+    // this.red.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
   leftprimeSlice() {
     let returned: Piece[] = [];
+    returned = this.orange.frontprimeSlice(returned);
     returned = this.green.leftprimeSlice(returned, this.sides);
     returned = this.white.leftprimeSlice(returned, this.sides);
-    returned = this.orange.frontprimeSlice(returned);
-    // this.red.nothing()
     returned = this.blue.rightprimeSlice(returned, this.sides);
     returned = this.yellow.leftprimeSlice(returned, this.sides);
+    this.green.insertPieces(returned);
+    // this.red.nothing()
+    this.draw();
   }
 
   upSlice() {
     let returned: Piece[] = [];
-    returned = this.green.upSlice(returned, this.sides);
     returned = this.white.frontSlice(returned);
+    returned = this.green.upSlice(returned, this.sides);
     returned = this.orange.upSlice(returned, this.sides);
-    returned = this.red.upSlice(returned, this.sides);
     returned = this.blue.upSlice(returned, this.sides);
+    returned = this.red.upSlice(returned, this.sides);
     // this.yellow.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
   upprimeSlice() {
     let returned: Piece[] = [];
-    returned = this.green.upprimeSlice(returned, this.sides);
     returned = this.white.frontprimeSlice(returned);
-    returned = this.orange.upprimeSlice(returned, this.sides);
+    returned = this.green.upprimeSlice(returned, this.sides);
     returned = this.red.upprimeSlice(returned, this.sides);
     returned = this.blue.upprimeSlice(returned, this.sides);
+    returned = this.orange.upprimeSlice(returned, this.sides);
     // this.yellow.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
 
   downSlice() {
     let returned: Piece[] = [];
+    returned = this.yellow.frontSlice(returned);
     returned = this.green.downSlice(returned, this.sides);
-    // this.white.nothing()
-    returned = this.orange.downSlice(returned, this.sides);
     returned = this.red.downSlice(returned, this.sides);
     returned = this.blue.downSlice(returned, this.sides);
-    returned = this.yellow.frontSlice(returned);
+    returned = this.orange.downSlice(returned, this.sides);
+    // this.white.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
   downprimeSlice() {
     let returned: Piece[] = [];
-    returned = this.green.downprimeSlice(returned, this.sides);
-    // this.white.nothing()
-    returned = this.orange.downprimeSlice(returned, this.sides);
-    returned = this.red.downprimeSlice(returned, this.sides);
-    returned = this.blue.downprimeSlice(returned, this.sides);
     returned = this.yellow.frontprimeSlice(returned);
+    returned = this.green.downprimeSlice(returned, this.sides);
+    returned = this.orange.downprimeSlice(returned, this.sides);
+    returned = this.blue.downprimeSlice(returned, this.sides);
+    returned = this.red.downprimeSlice(returned, this.sides);
+    // this.white.nothing()
+    this.green.insertPieces(returned);
     this.draw();
   }
 
