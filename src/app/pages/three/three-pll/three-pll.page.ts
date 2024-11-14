@@ -141,7 +141,7 @@ export class ThreePllPage {
     {
       name: 'T',
       sequences: ["(R U R' U') (R' F R2 U') R' U' (R U R' F')"],
-      imgUrl: `${environment.imgUrl}/d9e9ce26-e2e8-4033-7064-5732266f5a00/128`,
+      imgUrl: `${environment.imgUrl}/d4e592a6-6e0a-4c0a-42f2-c01938bffa00/128`,
       imgAlt: '3x3 T Perm Algo',
       simulationUrls: [
         'https://alg.cubing.net/?setup=x2y2.(F_R_U-_R-)_U_R_(U_R2-_F-_R)_(U_R_U-_R-)&alg=(R_U_R-_U-)_(R-_F_R2_U-)_R-_U-_(R_U_R-_F-)&view=playback',
