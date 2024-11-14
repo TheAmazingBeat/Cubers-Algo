@@ -1111,14 +1111,14 @@ export class ThreeCubeModel {
     this.ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
   }
 
-  scramble(sequence: Move[]) {
-    for (let i = 0; i < sequence.length; i++) {
-      this.slice(sequence[i]);
+  scrambleCube(scramble?: Move[]) {
+    if (!scramble) return;
+    for (let i = 0; i < scramble.length; i++) {
+      this.slice(scramble[i]);
     }
   }
 
   slice(move: Move) {
-    this.clear();
     switch (move) {
       case 'F':
         this.frontSlice();

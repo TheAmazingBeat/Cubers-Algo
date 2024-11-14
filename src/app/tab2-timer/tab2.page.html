@@ -10,14 +10,14 @@
   <ion-grid class="h-full timer-container">
     <!-- Scramble -->
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" sizeLg="10" class="text-center">
+      <ion-col size="12" class="text-center">
         <app-scramble #scrambleText></app-scramble>
       </ion-col>
     </ion-row>
 
     <!-- Timer -->
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" sizeLg="10" class="h-full">
+      <ion-col size="12" class="h-full">
         <app-timer></app-timer>
       </ion-col>
     </ion-row>
@@ -28,10 +28,7 @@
       </ion-col>
     </ion-row> -->
 
-    <!-- <app-cube-model
-      #scrambleDisplay
-      [scramble]="scrambleSequence"
-    ></app-cube-model> -->
+    <app-cube-model #scrambleDisplay [scramble]="scramble"></app-cube-model>
 
     <ion-row> </ion-row>
   </ion-grid>
