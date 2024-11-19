@@ -15,7 +15,7 @@ import { ThreeCubeModel } from 'src/app/interfaces/cube-model';
   styleUrls: ['./cube-model.component.scss'],
 })
 export class CubeModelComponent implements AfterViewInit {
-  @Input() scramble: Move[] = [];
+  @Input({ required: true }) scramble: Move[] = [];
   @ViewChild('cubeCanvas') cubeCanvas!: ElementRef<HTMLCanvasElement>;
   ctx!: CanvasRenderingContext2D;
   cube!: ThreeCubeModel;
@@ -29,6 +29,7 @@ export class CubeModelComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
+    console.log('Initializing cube model');
     this.cubeCanvas.nativeElement.width = this.canvasSize.width;
     this.cubeCanvas.nativeElement.height = this.canvasSize.height;
     const context = this.cubeCanvas.nativeElement.getContext('2d');
@@ -38,22 +39,29 @@ export class CubeModelComponent implements AfterViewInit {
     } else {
       throw new Error('Failed to get 2D context');
     }
+
+    this.initialize(this.scramble);
   }
 
-  initialize(scramble?: Move[]) {
-    console.log('Initializing cube');
+  private initialize(scramble: Move[]) {
     this.cube = new ThreeCubeModel(
       this.ctx,
       this.pieceSize,
       this.sideSize,
       this.canvasSize
     );
-    if (scramble) {
-      this.scramble = scramble || this.scramble;
-    }
+    console.log(scramble);
+    // if (scramble) {
+    //   this.scramble = scramble || this.scramble;
+    // }
     this.cube.scrambleCube(this.scramble);
     this.cube.draw();
     this.ctx.save();
+  }
+
+  giveScramble(scramble: Move[]) {
+    this.clear();
+    this.initialize(scramble);
   }
 
   clear() {

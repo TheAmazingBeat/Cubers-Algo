@@ -11,7 +11,8 @@
     <!-- Scramble -->
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" class="text-center">
-        <app-scramble #scrambleText></app-scramble>
+        <!-- <app-scramble #scrambleText></app-scramble> -->
+        <app-scramble [scramble]="scramble"></app-scramble>
       </ion-col>
     </ion-row>
 
@@ -28,7 +29,7 @@
       </ion-col>
     </ion-row> -->
 
-    <app-cube-model #scrambleDisplay [scramble]="scramble"></app-cube-model>
+    <app-cube-model #cubeModel [scramble]="scramble"></app-cube-model>
 
     <ion-row> </ion-row>
   </ion-grid>
