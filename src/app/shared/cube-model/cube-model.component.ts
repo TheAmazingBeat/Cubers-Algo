@@ -29,7 +29,7 @@ export class CubeModelComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    console.log('Initializing cube model');
+    console.log('Initializing cube model', this.scramble);
     this.cubeCanvas.nativeElement.width = this.canvasSize.width;
     this.cubeCanvas.nativeElement.height = this.canvasSize.height;
     const context = this.cubeCanvas.nativeElement.getContext('2d');
@@ -50,18 +50,16 @@ export class CubeModelComponent implements AfterViewInit {
       this.sideSize,
       this.canvasSize
     );
-    console.log(scramble);
-    // if (scramble) {
-    //   this.scramble = scramble || this.scramble;
-    // }
+    console.log('Initializing with ', scramble);
     this.cube.scrambleCube(this.scramble);
     this.cube.draw();
     this.ctx.save();
   }
 
   giveScramble(scramble: Move[]) {
+    this.scramble = scramble;
     this.clear();
-    this.initialize(scramble);
+    this.initialize(this.scramble);
   }
 
   clear() {

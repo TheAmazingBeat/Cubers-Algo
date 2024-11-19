@@ -15,18 +15,15 @@ import { ScrambleGeneratorService } from '../services/scramble-generator.service
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
 })
-export class Tab2Page implements OnInit, AfterViewInit {
+export class Tab2Page implements OnInit {
   scramble: Move[] = [];
   @ViewChild(CubeModelComponent) cubeModel!: CubeModelComponent;
 
   constructor(private scrambleGenerator: ScrambleGeneratorService) {}
 
   async ngOnInit() {
-    console.log('Generating scramble');
-    this.scramble = await this.scrambleGenerator.generateScramble();
-  }
-
-  ngAfterViewInit() {
+    await this.scrambleGenerator.generateScramble();
+    this.scramble = this.scrambleGenerator.getScramble();
     this.cubeModel.giveScramble(this.scramble);
   }
 }
