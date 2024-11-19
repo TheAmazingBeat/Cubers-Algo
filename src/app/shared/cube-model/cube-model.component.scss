@@ -1,0 +1,11 @@
+.scramble-display {
+  position: absolute;
+  right: 1rem;
+  bottom: calc(56px + 1rem); // tab bar is 56px
+}
+
+.scramble-buttons {
+  position: absolute;
+  left: 1rem;
+  bottom: calc(56px + 1rem); // tab bar is 56px
+}

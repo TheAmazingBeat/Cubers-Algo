@@ -1,0 +1,10 @@
+@if (scramble.length === 0) {
+<ion-spinner></ion-spinner>
+}@else {
+<h1>
+  @for (move of scramble; track $index) {
+  <span>{{ move }} </span>
+  }
+</h1>
+
+}

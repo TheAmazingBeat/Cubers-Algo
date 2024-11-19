@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -16,6 +16,8 @@ export class TimerComponent implements OnInit {
   readyInterval: any;
   isReady: 'stopped' | 'not-ready' | 'ready' = 'stopped';
   isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+  newTimer = output<number>();
 
   ngOnInit() {
     this.reset();
@@ -113,7 +115,7 @@ export class TimerComponent implements OnInit {
   }
 
   // Event handlers to start, stop, and reset the timer
-  getReady(event: MouseEvent | KeyboardEvent) {
+  getReady(event: MouseEvent | KeyboardEvent | TouchEvent) {
     event.stopPropagation();
     event.stopImmediatePropagation();
     event.preventDefault();
@@ -124,16 +126,23 @@ export class TimerComponent implements OnInit {
     this.isReady = 'not-ready';
   }
 
-  stopOrStart(event: MouseEvent | KeyboardEvent) {
+  stopOrStart(event: MouseEvent | KeyboardEvent | TouchEvent) {
     event.stopPropagation();
     event.stopImmediatePropagation();
     event.preventDefault();
 
     if (!this.isPaused) {
       this.stop();
+      this.newSolve(true)
     } else {
       this.reset();
       this.start();
+    }
+  }
+
+  newSolve(changeToNew: boolean) {
+    if (changeToNew) {
+      this.newTimer.emit(1);
     }
   }
 }

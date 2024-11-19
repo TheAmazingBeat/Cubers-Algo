@@ -7,6 +7,7 @@ import { Tab2Page } from './tab2.page';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { TimerComponent } from './timer/timer.component';
+import { ScrambleComponent } from './scramble-display/scramble-display.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { TimerComponent } from './timer/timer.component';
     Tab2PageRoutingModule,
     SharedModule,
   ],
-  declarations: [Tab2Page, TimerComponent],
+  declarations: [Tab2Page, TimerComponent, ScrambleComponent],
 })
 export class Tab2PageModule {}

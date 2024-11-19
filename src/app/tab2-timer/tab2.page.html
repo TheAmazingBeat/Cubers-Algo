@@ -1,8 +1,3 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Timer </ion-title>
-  </ion-toolbar>
-</ion-header> -->
 <app-tab-header title="Timer"></app-tab-header>
 
 <ion-content [fullscreen]="true">
@@ -12,11 +7,30 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid class="h-full">
-    <ion-row class="ion-justify-content-center h-full">
-      <ion-col size="12" sizeLg="10" class="h-full">
-        <app-timer></app-timer>
+  <ion-grid class="h-full timer-container">
+    <!-- Scramble -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="text-center">
+        <!-- <app-scramble #scrambleText></app-scramble> -->
+        <app-scramble [scramble]="scramble"></app-scramble>
       </ion-col>
     </ion-row>
+
+    <!-- Timer -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="h-full">
+        <app-timer (newTimer)="newScramble()"></app-timer>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeLg="10" class="text-center">
+        
+      </ion-col>
+    </ion-row> -->
+
+    <app-cube-model #cubeModel [scramble]="scramble"></app-cube-model>
+
+    <ion-row> </ion-row>
   </ion-grid>
 </ion-content>

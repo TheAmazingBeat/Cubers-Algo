@@ -8,6 +8,7 @@ import { AlgoCategoryComponent } from './algo-category/algo-category.component';
 import { AlgoComponent } from './algo/algo.component';
 import { TwistyComponent } from './twisty/twisty.component';
 import { AlgoModalComponent } from './algo-modal/algo-modal.component';
+import { CubeModelComponent } from './cube-model/cube-model.component';
 @NgModule({
   imports: [IonicModule, CommonModule, FormsModule],
   declarations: [
@@ -17,6 +18,7 @@ import { AlgoModalComponent } from './algo-modal/algo-modal.component';
     AlgoComponent,
     AlgoModalComponent,
     TwistyComponent,
+    CubeModelComponent,
   ],
   exports: [
     TabHeaderComponent,
@@ -25,6 +27,7 @@ import { AlgoModalComponent } from './algo-modal/algo-modal.component';
     AlgoComponent,
     AlgoModalComponent,
     TwistyComponent,
+    CubeModelComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
