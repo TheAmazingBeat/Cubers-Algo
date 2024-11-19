@@ -51,6 +51,7 @@ export class ScrambleGeneratorService {
    * @returns an array of Moves suggesting the scramble for the cube
    */
   async generateScramble() {
+    this.scramble = [];
     const newScramble = await randomScrambleForEvent('333');
 
     newScramble

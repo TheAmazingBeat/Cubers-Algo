@@ -17,7 +17,7 @@ export class TimerComponent implements OnInit {
   isReady: 'stopped' | 'not-ready' | 'ready' = 'stopped';
   isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
-  new = output<number>();
+  newTimer = output<number>();
 
   ngOnInit() {
     this.reset();
@@ -142,7 +142,7 @@ export class TimerComponent implements OnInit {
 
   newSolve(changeToNew: boolean) {
     if (changeToNew) {
-      this.new.emit(1);
+      this.newTimer.emit(1);
     }
   }
 }

@@ -22,6 +22,11 @@ export class Tab2Page implements OnInit {
   constructor(private scrambleGenerator: ScrambleGeneratorService) {}
 
   async ngOnInit() {
+    await this.newScramble();
+  }
+
+  async newScramble(){
+    this.scramble = []
     await this.scrambleGenerator.generateScramble();
     this.scramble = this.scrambleGenerator.getScramble();
     this.cubeModel.giveScramble(this.scramble);
