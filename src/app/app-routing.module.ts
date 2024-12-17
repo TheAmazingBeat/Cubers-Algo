@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'notations',
+    loadChildren: () => import('./pages/two/notations/notations.module').then( m => m.NotationsPageModule)
+  },
+  {
+    path: 'ortega',
+    loadChildren: () => import('./pages/two/ortega/ortega.module').then( m => m.OrtegaPageModule)
   }
 ];
 @NgModule({
