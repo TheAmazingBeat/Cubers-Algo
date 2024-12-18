@@ -13,27 +13,6 @@ const routes: Routes = [
           import('../tab1-algos/tab1.module').then((m) => m.Tab1PageModule),
       },
       {
-        path: 'algos/three/three-2loll',
-        loadChildren: () =>
-          import('../pages/three/three-2loll/three-2loll.module').then(
-            (m) => m.Three2LOllPageModule
-          ),
-      },
-      {
-        path: 'algos/three/three-pll',
-        loadChildren: () =>
-          import('../pages/three/three-pll/three-pll.module').then(
-            (m) => m.ThreePllPageModule
-          ),
-      },
-      {
-        path: 'algos/three/notations',
-        loadChildren: () =>
-          import('../pages/three/notations/notations.module').then(
-            (m) => m.NotationsPageModule
-          ),
-      },
-      {
         path: 'timer',
         loadChildren: () =>
           import('../tab2-timer/tab2.module').then((m) => m.Tab2PageModule),
