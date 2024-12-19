@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { NotationsPageRoutingModule } from './notations-routing.module';
 
 import { NotationsPage } from './notations.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NotationsPageRoutingModule
+    NotationsPageRoutingModule,
+    SharedModule
   ],
   declarations: [NotationsPage]
 })
