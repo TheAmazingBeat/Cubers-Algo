@@ -122,6 +122,18 @@ export class NotationsPage {
         'Imagine there is a y axis across the middle of the cube. Turn the whole cube to the right from that imaginary axis. If you look at the top side of the cube, the whole cube is turned counterclockwise.',
     },
     {
+      notation: 'M',
+      imgSrc: 'assets/notations/three-M.png',
+      imgAlt: "3x3 Rubik's Cube M Notation",
+      description: 'Turn the middle layer downwards.',
+    },
+    {
+      notation: "M'",
+      imgSrc: "assets/notations/three-M'.png",
+      imgAlt: "3x3 Rubik's Cube M' Notation",
+      description: 'Turn the middle layer upwards.',
+    },
+    {
       notation: 'r, l, u, d, f, b',
       imgSrc: 'assets/notations/three-lowercase.png',
       imgAlt: "3x3 Rubik's Cube Lowercase Notation",
