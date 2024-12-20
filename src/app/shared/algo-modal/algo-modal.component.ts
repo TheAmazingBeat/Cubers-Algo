@@ -10,6 +10,7 @@ export class AlgoModalComponent {
   name = '';
   sequence = '';
   setupAlgo = '';
+  puzzleType: '3x3x3' | '2x2x2' = '3x3x3';
 
   constructor(private modalController: ModalController) {}
 

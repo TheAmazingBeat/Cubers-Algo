@@ -9,6 +9,7 @@ export class TwistyComponent {
   scriptElement: HTMLScriptElement;
   @Input() sequence: string = "R U R' U R U2' R'";
   @Input() setupAlgo: string = 'x2 y2';
+  @Input() puzzleType: '3x3x3' | '2x2x3' = '3x3x3';
 
   constructor() {
     this.scriptElement = document.createElement('script');

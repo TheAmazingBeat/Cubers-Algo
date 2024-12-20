@@ -23,17 +23,23 @@ export class AlgoComponent implements OnInit {
       }
 
       // Set the simulation URLs
-      this.simulationUrls = this.algo.simulationUrls;
+      if (this.algo.simulationUrls)
+        this.simulationUrls = this.algo.simulationUrls;
     }
   }
 
-  async openModal(algoName: string | undefined, sequence: string[], setupAlgo: string[] | undefined) {
+  async openModal(
+    algoName: string | undefined,
+    sequence: string[],
+    setupAlgo: string[] | undefined
+  ) {
     const modal = await this.modalController.create({
       component: AlgoModalComponent,
       componentProps: {
         name: algoName,
         sequence: sequence.join(' '),
         setupAlgo: setupAlgo?.join(' '),
+        puzzleType: this.algo?.puzzleType
       },
     });
     modal.present();
