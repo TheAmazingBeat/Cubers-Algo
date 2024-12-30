@@ -22,6 +22,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.F_(U_R_U-_R-)_F-&alg=F_(R_U_R-_U-)_F-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Elbow',
@@ -32,6 +33,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.f_(U_R_U-_R-)_f-&alg=f_(R_U_R-_U-)_f-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Dot',
@@ -42,6 +44,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.f_(U_R_U-_R-)_f-_F_(U_R_U-_R-)_F-&alg=F_(R_U_R-_U-)_F-_f_(R_U_R-_U-)_f-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
@@ -55,6 +58,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2_._y2_._R_U2_R-_U-_R_U-_R-&alg=R_U_R-_U_R_U2_R-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Antisune',
@@ -65,6 +69,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.R_U_R-_U_R_U2_R-&alg=R_U2_R-_U-_R_U-_R-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Headlights',
@@ -75,6 +80,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.R2_D_(R-_U2_R)_D-_(R-_U2_R-).R2_D_(R-_U2_R)_D-_(R-_U2_R-)&alg=R2_D_(R-_U2_R)_D-_(R-_U2_R-)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'T',
@@ -85,6 +91,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.(r_U_R-_U-)_r-_(F_R_F-).(r_U_R-_U-)_r-_(F_R_F-)&alg=(r_U_R-_U-)_r-_(F_R_F-)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'H',
@@ -95,6 +102,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.F_(R_U_R-_U-)_(R_U_R-_U-)(R_U_R-_U-)_F-.&alg=F_(R_U_R-_U-)_(R_U_R-_U-)(R_U_R-_U-)_F-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Bowtie',
@@ -105,6 +113,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.F-_(r_U_R-_U-)_r-_F_R.F-_(r_U_R-_U-)_r-_F_R&alg=F-_(r_U_R-_U-)_r-_F_R&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Pi',
@@ -115,6 +124,7 @@ export class Three2LOllPage {
         'https://alg.cubing.net/?setup=x2y2.R-_U2_R2_U_R2-_U_R2_U2-_R-&alg=R_U2_R2-_U-_R2_U-_R2-_U2-_R&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 

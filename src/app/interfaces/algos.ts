@@ -3,6 +3,7 @@ export interface Algo {
   sequences: string[];
   imgUrl: string;
   imgAlt: string;
-  simulationUrls: string[];
   setupAlgo: string[]
+  puzzleType: '3x3x3' | '2x2x2';
+  simulationUrls?: string[];
 }

@@ -1,1 +1,16 @@
-<twisty-player experimental-setup-anchor="end" experimental-setup-alg="x2 y2" [alg]="sequence"></twisty-player>
+@if (!puzzleType || puzzleType === '3x3x3') {
+<twisty-player
+  experimental-setup-anchor="end"
+  experimental-setup-alg="x2 y2"
+  [alg]="sequence"
+  puzzle="3x3x3"
+></twisty-player>
+
+} @else if (puzzleType === '2x2x2') {
+<twisty-player
+  experimental-setup-anchor="end"
+  experimental-setup-alg="x2 y2"
+  [alg]="sequence"
+  puzzle="2x2x2"
+></twisty-player>
+}

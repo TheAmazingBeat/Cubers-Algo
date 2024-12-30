@@ -18,6 +18,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.M2_U-_M_U2_M-_U-_M2&alg=M2-_U_M_U2-_M-_U_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Ub',
@@ -28,6 +29,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.M2_U_M_U2_M-_U_M2&alg=M2-_U-_M_U2-_M-_U-_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'H',
@@ -38,6 +40,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.M2-_U_M2-_U2_M2-_U_M2-&alg=M2-_U_M2-_U2_M2-_U_M2-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Z',
@@ -48,6 +51,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.M2-_U-_M2-_U-_M-_U2_M2-_U2_M-_U2&alg=M2-_U-_M2-_U-_M-_U2_M2-_U2_M-_U2&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
@@ -61,6 +65,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.x_R2-_D2-_(R_U_R-)_D2-_(R_U-_R)_x-&alg=x_(R-_U_R-)_D2_(R_U-_R-)_D2_R2_x-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Ab',
@@ -71,6 +76,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.x_(R-_U_R-)_D2-_(R_U-_R-)_D2-_R2_x-&alg=x_R2-_D2_(R_U_R-)_D2_(R_U-_R)_x-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'E',
@@ -81,6 +87,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.x-_(D_R_U_R-)_(D-_R_U-_R-)_(D_R_U-_R-)_(D-_R_U_R-)_x&alg=x-_(R_U-_R-_D)_(R_U_R-_D-)_(R_U_R-_D)_(R_U-_R-_D-)_x&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
@@ -94,6 +101,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U_(R_U2-_R)_(D_R-_U_R)_(D-_R-_U-_R-)_(U_R_U_R-)&alg=(R_U-_R-_U-)_(R_U_R_D)_(R-_U-_R_D-)_(R-_U2_R-)_U-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Rb',
@@ -104,6 +112,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U_R2-_F_R_(U_R_U-_R-)_F-_R_(U2_R-_U2-_R)&alg=(R-_U2_R_U2-)_R-_F_(R_U_R-_U-)_R-_F-_R2_U-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Ja',
@@ -117,6 +126,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U_L-_(R-_U2-_R_U_R-)_(U2-_L_U-_R)&alg=(R-_U_L-_U2)_(R_U-_R-_U2_R)_L_U-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Jb',
@@ -127,6 +137,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U_R_U_R2-_F-_R_(U_R_U-_R-)_(F_R_U-_R-)&alg=(R_U_R-_F-)_(R_U_R-_U-)_R-_F_R2_U-_R-_U-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'F',
@@ -137,6 +148,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.(R-_U-_R)_(U-_R-_U_R)_(U_R2-_F-_R)_(U_R_U-_R-)_(F_U_R)&alg=(R-_U-_F-)_(R_U_R-_U-)_(R-_F_R2_U-)_(R-_U-_R_U)_(R-_U_R)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'T',
@@ -147,6 +159,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.(F_R_U-_R-)_U_R_(U_R2-_F-_R)_(U_R_U-_R-)&alg=(R_U_R-_U-)_(R-_F_R2_U-)_R-_U-_(R_U_R-_F-)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
@@ -160,6 +173,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.F-_R-_(F-_R_U-_R)_(U_R2-_F_R)_y-_(U_R_U-_R)&alg=(R-_U_R-_U-)_y_(R-_F-_R2_U-)_(R-_U_R-_F)_R_F&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Y',
@@ -170,6 +184,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.F_(R_U-_R-_U-)_(R_U_R-_F-)_(R_U_R-_U-)_(R-_F_R_F-)&alg=F_(R_U-_R-_U-)_(R_U_R-_F-)_(R_U_R-_U-)_(R-_F_R_F-)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Na',
@@ -182,6 +197,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.(R_U_R-_U)_(R_U_R-_F-)_(R_U_R-_U-)_(R-_F_R2_U-)_R-_U2_(R_U-_R-)&alg=(R_U_R-_U)_(R_U_R-_F-)_(R_U_R-_U-)_(R-_F_R2_U-)_R-_U2_(R_U-_R-)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Nb',
@@ -192,6 +208,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.(R-_U_R_U-)_(R-_F-_U-_F)_(R_U_R-_F)_R-_F-_(R_U-_R)&alg=(R-_U_R_U-)_(R-_F-_U-_F)_(R_U_R-_F)_R-_F-_(R_U-_R)&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
@@ -205,6 +222,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U-_(D_R-_U-_R)_U_D-_(R2-_U_R-)_(U_R_U-_R)_U-_R2-&alg=R2_U_(R-_U_R-_U-)_(R_U-_R2)_D_U-_(R-_U_R_D-)_U&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Gb',
@@ -215,6 +233,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.R2-_(u_R-_U_R-)_(U-_R_u-_R2-)_(F-_U_F)&alg=(F-_U-_F)_(R2_u_R-_U)_(R_U-_R_u-)_R2&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Gc',
@@ -225,6 +244,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U_D-_(R_U_R-_U-)_(D_R2-_U-_R)_(U-_R-_U_R-)_U_R2-&alg=R2_U-_(R_U-_R_U)_(R-_U_R2_D-)_(U_R_U-_R-)_D_U-&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
     {
       name: 'Gd',
@@ -235,6 +255,7 @@ export class ThreePllPage {
         'https://alg.cubing.net/?setup=x2y2.U-_R2-_(U-_R_U-_R)_(U_R-_U_R2-)_D-_(U_R_U-_R-)_D&alg=D-_(R_U_R-_U-)_D_(R2_U-_R_U-)_(R-_U_R-_U)_R2_U&view=playback',
       ],
       setupAlgo: ['x2 y2'],
+      puzzleType: '3x3x3',
     },
   ];
 
